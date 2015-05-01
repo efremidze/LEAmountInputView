@@ -7,6 +7,7 @@
 //
 
 #import "LESaleView.h"
+#import "LESaleCalculator.h"
 
 #import "XXNibBridge.h"
 
@@ -15,53 +16,105 @@
 
 @interface LESaleView () <XXNibBridge>
 
+@property (nonatomic, weak) IBOutlet UIView *gridView;
+
+@property (nonatomic, strong) LESaleCalculator *saleCalculator;
+
 @end
 
 @implementation LESaleView
+
+- (instancetype)init
+{
+    if (self = [super init]) {
+        [self commonInit];
+    }
+    return self;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    if (self = [super initWithFrame:frame]) {
+        [self commonInit];
+    }
+    return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
+        [self commonInit];
+    }
+    return self;
+}
+
+- (void)commonInit
+{
+    self.gridColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
+    self.textColor = [UIColor colorWithWhite:0.3f alpha:1.0f];
+    self.font = [UIFont systemFontOfSize:40.0f];
+    
+    self.saleCalculator = [LESaleCalculator new];
+}
 
 - (void)awakeFromNib
 {
     [super awakeFromNib];
     
-    self.backgroundColor = [self gridColor];
-
-    self.layer.borderColor = [self gridColor].CGColor;
+    self.layer.borderColor = self.gridColor.CGColor;
     self.layer.borderWidth = 1.0f;
     
-    self.textField.textColor = [self textColor];
-    self.textField.font = [self font];
-    self.textField.placeholder = [[self numberFormatter] stringFromNumber:[self amountFromString:nil]];
-    self.textField.enabled = NO;
+    self.gridView.backgroundColor = self.gridColor;
     
+    // textfields
+    self.textField.enabled = NO;
+    self.textField.textColor = self.textColor;
+    self.textField.font = self.font;
+    self.textField.placeholder = [self.saleCalculator currencyStringFromString:@""];
+    
+    // buttons
     for (UIButton *button in self.buttons) {
-        button.titleLabel.font = [self font];
+        button.titleLabel.font = self.font;
         
-        [button setTitleColor:[self titleColorForButton:button] forState:UIControlStateNormal];
-        [button setTitleColor:[self titleColorForButton:button] forState:UIControlStateHighlighted];
-        [button setTitleColor:[self titleColorForButton:button] forState:UIControlStateSelected];
+        UIColor *titleColor = [self titleColorForButton:button];
+        [button setTitleColor:titleColor forState:UIControlStateNormal];
+        [button setTitleColor:titleColor forState:UIControlStateHighlighted];
+        [button setTitleColor:titleColor forState:UIControlStateSelected];
         
-        [button setBackgroundImage:[UIImage imageFromColor:[UIColor whiteColor]] forState:UIControlStateNormal];
-        [button setBackgroundImage:[UIImage imageFromColor:[self gridColor]] forState:UIControlStateHighlighted];
-        [button setBackgroundImage:[UIImage imageFromColor:[self gridColor]] forState:UIControlStateSelected];
+        UIImage *backgroundImage = [UIImage imageFromColor:self.backgroundColor];
+        [button setBackgroundImage:backgroundImage forState:UIControlStateNormal];
+        backgroundImage = [UIImage imageFromColor:self.gridColor];
+        [button setBackgroundImage:backgroundImage forState:UIControlStateHighlighted];
+        [button setBackgroundImage:backgroundImage forState:UIControlStateSelected];
     }
 }
 
-#pragma mark -
+#pragma mark - Override Properties
 
-- (UIColor *)gridColor
+- (void)setLocale:(NSLocale *)locale
 {
-    return [UIColor colorWithWhite:0.9f alpha:1.0f];
+    self.saleCalculator.numberFormatter.locale = locale;
 }
 
-- (UIColor *)textColor
+- (NSLocale *)locale
 {
-    return [UIColor colorWithWhite:0.3f alpha:1.0f];
+    return self.saleCalculator.numberFormatter.locale;
 }
 
-- (UIFont *)font
+#pragma mark - IBActions
+
+- (IBAction)didTouchOnClearButton:(UIButton *)button
 {
-    return [UIFont systemFontOfSize:40.0f];
+    self.textField.text = nil;
 }
+
+- (IBAction)didTouchOnDigitButton:(UIButton *)button
+{
+    NSString *string = [self.textField.text stringByAppendingString:button.titleLabel.text];
+    self.textField.text = [self.saleCalculator currencyStringFromString:string];
+}
+
+#pragma mark - Helpers
 
 - (UIColor *)titleColorForButton:(UIButton *)button
 {
@@ -71,56 +124,9 @@
     return [self textColor];
 }
 
-#pragma mark -
-
-- (IBAction)didTouchOnClearButton:(UIButton *)button
+- (NSNumber *)amount;
 {
-    if ([self.textField.delegate respondsToSelector:@selector(textFieldShouldClear:)]) {
-        if (![self.textField.delegate textFieldShouldClear:self.textField]) {
-            return;
-        }
-    }
-    self.textField.text = nil;
-}
-
-- (IBAction)didTouchOnNumberButton:(UIButton *)button
-{
-    if ([self.textField.delegate respondsToSelector:@selector(textField:shouldChangeCharactersInRange:replacementString:)]) {
-        NSRange range = [self.textField selectedRange];
-        if (![self.textField.delegate textField:self.textField shouldChangeCharactersInRange:range replacementString:button.titleLabel.text]) {
-            return;
-        }
-    }
-    NSString *string = [self.textField.text stringByAppendingString:button.titleLabel.text];
-    self.textField.text = [[self numberFormatter] stringFromNumber:[self amountFromString:string]];
-}
-
-#pragma mark -
-
-- (NSNumberFormatter *)numberFormatter
-{
-    static NSNumberFormatter *_numberFormatter = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _numberFormatter = [NSNumberFormatter new];
-        _numberFormatter.numberStyle = NSNumberFormatterCurrencyStyle;
-        _numberFormatter.locale = self.locale;
-    });
-    return _numberFormatter;
-}
-
-- (NSLocale *)locale
-{
-    if (!_locale) {
-        _locale = [NSLocale currentLocale];
-    }
-    return _locale;
-}
-
-- (NSNumber *)amountFromString:(NSString *)string
-{
-    NSString *digitString = [[string componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:[NSString string]];
-    return @(digitString.doubleValue / pow(10.0, [self numberFormatter].minimumFractionDigits));
+    return [self.saleCalculator amountFromString:self.textField.text];
 }
 
 @end

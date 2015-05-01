@@ -8,7 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
+@class LESaleView;
+
+@protocol LESaleViewDelegate <NSObject>
+
+@optional
+- (BOOL)saleView:(LESaleView *)saleView shouldInputDigit:(NSString *)digit;
+- (void)saleView:(LESaleView *)saleView didInputDigit:(NSString *)digit;
+- (BOOL)saleViewShouldClear:(LESaleView *)saleView;
+- (void)saleViewDidClear:(LESaleView *)saleView;
+
+@end
+
 @interface LESaleView : UIView
+
+@property (nonatomic, weak) id<LESaleViewDelegate> delegate;
 
 @property (nonatomic, weak) IBOutlet UIView *headerView;
 
@@ -16,6 +30,12 @@
 
 @property (nonatomic, strong) IBOutletCollection(UIButton) NSArray *buttons;
 
+@property (nonatomic, strong) UIColor *gridColor;
+@property (nonatomic, strong) UIColor *textColor;
+@property (nonatomic, strong) UIFont *font;
+
 @property (nonatomic, strong) NSLocale *locale;
+
+- (NSNumber *)amount;
 
 @end

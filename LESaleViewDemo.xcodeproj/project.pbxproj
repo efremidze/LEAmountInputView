@@ -13,8 +13,9 @@
 		8B3857101AF0B780004807F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B38570E1AF0B780004807F7 /* Main.storyboard */; };
 		8B3857121AF0B780004807F7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B3857111AF0B780004807F7 /* Images.xcassets */; };
 		8B3857151AF0B780004807F7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B3857131AF0B780004807F7 /* LaunchScreen.xib */; };
-		8B3DC55B1AF2E5890012B951 /* UITextField+LESaleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3DC55A1AF2E5890012B951 /* UITextField+LESaleView.m */; };
-		8B3DC55E1AF2F8880012B951 /* UIImage+LESaleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3DC55D1AF2F8880012B951 /* UIImage+LESaleView.m */; };
+		8B3DC5641AF2FB420012B951 /* UIImage+LESaleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3DC5611AF2FB420012B951 /* UIImage+LESaleView.m */; };
+		8B3DC5651AF2FB420012B951 /* UITextField+LESaleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3DC5631AF2FB420012B951 /* UITextField+LESaleView.m */; };
+		8B3DC5681AF2FC340012B951 /* LESaleCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3DC5671AF2FC340012B951 /* LESaleCalculator.m */; };
 		8B3E6E351AF184D800892FC8 /* LESaleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3E6E341AF184D800892FC8 /* LESaleView.m */; };
 		8BB124C01AF21F8F00AC34DD /* XXNibBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB124BD1AF21F8F00AC34DD /* XXNibBridge.m */; };
 		8BB124C11AF21F8F00AC34DD /* XXNibConvention.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB124BF1AF21F8F00AC34DD /* XXNibConvention.m */; };
@@ -32,10 +33,12 @@
 		8B38570F1AF0B780004807F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8B3857111AF0B780004807F7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8B3857141AF0B780004807F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		8B3DC5591AF2E5890012B951 /* UITextField+LESaleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+LESaleView.h"; sourceTree = "<group>"; };
-		8B3DC55A1AF2E5890012B951 /* UITextField+LESaleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+LESaleView.m"; sourceTree = "<group>"; };
-		8B3DC55C1AF2F8880012B951 /* UIImage+LESaleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LESaleView.h"; sourceTree = "<group>"; };
-		8B3DC55D1AF2F8880012B951 /* UIImage+LESaleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LESaleView.m"; sourceTree = "<group>"; };
+		8B3DC5601AF2FB420012B951 /* UIImage+LESaleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LESaleView.h"; sourceTree = "<group>"; };
+		8B3DC5611AF2FB420012B951 /* UIImage+LESaleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LESaleView.m"; sourceTree = "<group>"; };
+		8B3DC5621AF2FB420012B951 /* UITextField+LESaleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+LESaleView.h"; sourceTree = "<group>"; };
+		8B3DC5631AF2FB420012B951 /* UITextField+LESaleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+LESaleView.m"; sourceTree = "<group>"; };
+		8B3DC5661AF2FC340012B951 /* LESaleCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LESaleCalculator.h; sourceTree = "<group>"; };
+		8B3DC5671AF2FC340012B951 /* LESaleCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LESaleCalculator.m; sourceTree = "<group>"; };
 		8B3E6E331AF184D800892FC8 /* LESaleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LESaleView.h; sourceTree = "<group>"; };
 		8B3E6E341AF184D800892FC8 /* LESaleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LESaleView.m; sourceTree = "<group>"; };
 		8BB124BC1AF21F8F00AC34DD /* XXNibBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXNibBridge.h; sourceTree = "<group>"; };
@@ -97,16 +100,26 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		8B3DC55F1AF2FB420012B951 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				8B3DC5601AF2FB420012B951 /* UIImage+LESaleView.h */,
+				8B3DC5611AF2FB420012B951 /* UIImage+LESaleView.m */,
+				8B3DC5621AF2FB420012B951 /* UITextField+LESaleView.h */,
+				8B3DC5631AF2FB420012B951 /* UITextField+LESaleView.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
 		8B6B351D1AF0B8DD0085F548 /* LESaleView */ = {
 			isa = PBXGroup;
 			children = (
+				8B3DC55F1AF2FB420012B951 /* Categories */,
+				8B3DC5661AF2FC340012B951 /* LESaleCalculator.h */,
+				8B3DC5671AF2FC340012B951 /* LESaleCalculator.m */,
 				8B3E6E331AF184D800892FC8 /* LESaleView.h */,
 				8B3E6E341AF184D800892FC8 /* LESaleView.m */,
 				8BBB12BE1AF0C183000DC3C8 /* LESaleView.xib */,
-				8B3DC55C1AF2F8880012B951 /* UIImage+LESaleView.h */,
-				8B3DC55D1AF2F8880012B951 /* UIImage+LESaleView.m */,
-				8B3DC5591AF2E5890012B951 /* UITextField+LESaleView.h */,
-				8B3DC55A1AF2E5890012B951 /* UITextField+LESaleView.m */,
 				8BB124BB1AF21F8F00AC34DD /* XXNibBridge */,
 			);
 			path = LESaleView;
@@ -194,14 +207,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B3DC55E1AF2F8880012B951 /* UIImage+LESaleView.m in Sources */,
+				8B3DC5681AF2FC340012B951 /* LESaleCalculator.m in Sources */,
 				8B3E6E351AF184D800892FC8 /* LESaleView.m in Sources */,
 				8B38570D1AF0B780004807F7 /* ViewController.m in Sources */,
 				8B38570A1AF0B780004807F7 /* AppDelegate.m in Sources */,
 				8BB124C01AF21F8F00AC34DD /* XXNibBridge.m in Sources */,
 				8BB124C11AF21F8F00AC34DD /* XXNibConvention.m in Sources */,
-				8B3DC55B1AF2E5890012B951 /* UITextField+LESaleView.m in Sources */,
 				8B3857071AF0B780004807F7 /* main.m in Sources */,
+				8B3DC5651AF2FB420012B951 /* UITextField+LESaleView.m in Sources */,
+				8B3DC5641AF2FB420012B951 /* UIImage+LESaleView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
