@@ -18,13 +18,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4XY-fu-mTI" customClass="LESaleView">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="22" width="600" height="578"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="4XY-fu-mTI" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="CnX-AA-Ked"/>
+                            <constraint firstItem="4XY-fu-mTI" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="22" id="CnX-AA-Ked"/>
                             <constraint firstAttribute="trailing" secondItem="4XY-fu-mTI" secondAttribute="trailing" id="FCb-NC-bia"/>
                             <constraint firstItem="4XY-fu-mTI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="NoA-ko-NPZ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="4XY-fu-mTI" secondAttribute="bottom" id="QQq-Rc-d6r"/>

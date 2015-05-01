@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LEXibView.h"
-#import "LEFlatButton.h"
 
-@interface LESaleView : LEXibView
+@interface LESaleView : UIView
 
-@property (nonatomic, strong) IBOutletCollection(LEFlatButton) NSArray *buttons;
+@property (nonatomic, weak) IBOutlet UIView *headerView;
+
+@property (nonatomic, weak) IBOutlet UITextField *textField;
+
+@property (nonatomic, strong) IBOutletCollection(UIButton) NSArray *buttons;
+
+@property (nonatomic, strong) NSLocale *locale;
 
 @end

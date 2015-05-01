@@ -13,11 +13,11 @@
 		8B3857101AF0B780004807F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B38570E1AF0B780004807F7 /* Main.storyboard */; };
 		8B3857121AF0B780004807F7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B3857111AF0B780004807F7 /* Images.xcassets */; };
 		8B3857151AF0B780004807F7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B3857131AF0B780004807F7 /* LaunchScreen.xib */; };
+		8B3DC55B1AF2E5890012B951 /* UITextField+LESaleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3DC55A1AF2E5890012B951 /* UITextField+LESaleView.m */; };
+		8B3DC55E1AF2F8880012B951 /* UIImage+LESaleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3DC55D1AF2F8880012B951 /* UIImage+LESaleView.m */; };
 		8B3E6E351AF184D800892FC8 /* LESaleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3E6E341AF184D800892FC8 /* LESaleView.m */; };
-		8BB124B71AF2184D00AC34DD /* LEFlatButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB124AF1AF2184D00AC34DD /* LEFlatButton.m */; };
-		8BB124B81AF2184D00AC34DD /* UIColor+LEFlatButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB124B11AF2184D00AC34DD /* UIColor+LEFlatButton.m */; };
-		8BB124B91AF2184D00AC34DD /* UIImage+LEFlatButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB124B31AF2184D00AC34DD /* UIImage+LEFlatButton.m */; };
-		8BB124BA1AF2184D00AC34DD /* LEXibView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB124B61AF2184D00AC34DD /* LEXibView.m */; };
+		8BB124C01AF21F8F00AC34DD /* XXNibBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB124BD1AF21F8F00AC34DD /* XXNibBridge.m */; };
+		8BB124C11AF21F8F00AC34DD /* XXNibConvention.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB124BF1AF21F8F00AC34DD /* XXNibConvention.m */; };
 		8BBB12BF1AF0C183000DC3C8 /* LESaleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BBB12BE1AF0C183000DC3C8 /* LESaleView.xib */; };
 /* End PBXBuildFile section */
 
@@ -32,16 +32,16 @@
 		8B38570F1AF0B780004807F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8B3857111AF0B780004807F7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8B3857141AF0B780004807F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		8B3DC5591AF2E5890012B951 /* UITextField+LESaleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+LESaleView.h"; sourceTree = "<group>"; };
+		8B3DC55A1AF2E5890012B951 /* UITextField+LESaleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+LESaleView.m"; sourceTree = "<group>"; };
+		8B3DC55C1AF2F8880012B951 /* UIImage+LESaleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LESaleView.h"; sourceTree = "<group>"; };
+		8B3DC55D1AF2F8880012B951 /* UIImage+LESaleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LESaleView.m"; sourceTree = "<group>"; };
 		8B3E6E331AF184D800892FC8 /* LESaleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LESaleView.h; sourceTree = "<group>"; };
 		8B3E6E341AF184D800892FC8 /* LESaleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LESaleView.m; sourceTree = "<group>"; };
-		8BB124AE1AF2184D00AC34DD /* LEFlatButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEFlatButton.h; sourceTree = "<group>"; };
-		8BB124AF1AF2184D00AC34DD /* LEFlatButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEFlatButton.m; sourceTree = "<group>"; };
-		8BB124B01AF2184D00AC34DD /* UIColor+LEFlatButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+LEFlatButton.h"; sourceTree = "<group>"; };
-		8BB124B11AF2184D00AC34DD /* UIColor+LEFlatButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+LEFlatButton.m"; sourceTree = "<group>"; };
-		8BB124B21AF2184D00AC34DD /* UIImage+LEFlatButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LEFlatButton.h"; sourceTree = "<group>"; };
-		8BB124B31AF2184D00AC34DD /* UIImage+LEFlatButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LEFlatButton.m"; sourceTree = "<group>"; };
-		8BB124B51AF2184D00AC34DD /* LEXibView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEXibView.h; sourceTree = "<group>"; };
-		8BB124B61AF2184D00AC34DD /* LEXibView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEXibView.m; sourceTree = "<group>"; };
+		8BB124BC1AF21F8F00AC34DD /* XXNibBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXNibBridge.h; sourceTree = "<group>"; };
+		8BB124BD1AF21F8F00AC34DD /* XXNibBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXNibBridge.m; sourceTree = "<group>"; };
+		8BB124BE1AF21F8F00AC34DD /* XXNibConvention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXNibConvention.h; sourceTree = "<group>"; };
+		8BB124BF1AF21F8F00AC34DD /* XXNibConvention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXNibConvention.m; sourceTree = "<group>"; };
 		8BBB12BE1AF0C183000DC3C8 /* LESaleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LESaleView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,35 +100,27 @@
 		8B6B351D1AF0B8DD0085F548 /* LESaleView */ = {
 			isa = PBXGroup;
 			children = (
-				8BB124AD1AF2184D00AC34DD /* LEFlatButton */,
 				8B3E6E331AF184D800892FC8 /* LESaleView.h */,
 				8B3E6E341AF184D800892FC8 /* LESaleView.m */,
 				8BBB12BE1AF0C183000DC3C8 /* LESaleView.xib */,
-				8BB124B41AF2184D00AC34DD /* LEXibView */,
+				8B3DC55C1AF2F8880012B951 /* UIImage+LESaleView.h */,
+				8B3DC55D1AF2F8880012B951 /* UIImage+LESaleView.m */,
+				8B3DC5591AF2E5890012B951 /* UITextField+LESaleView.h */,
+				8B3DC55A1AF2E5890012B951 /* UITextField+LESaleView.m */,
+				8BB124BB1AF21F8F00AC34DD /* XXNibBridge */,
 			);
 			path = LESaleView;
 			sourceTree = "<group>";
 		};
-		8BB124AD1AF2184D00AC34DD /* LEFlatButton */ = {
+		8BB124BB1AF21F8F00AC34DD /* XXNibBridge */ = {
 			isa = PBXGroup;
 			children = (
-				8BB124AE1AF2184D00AC34DD /* LEFlatButton.h */,
-				8BB124AF1AF2184D00AC34DD /* LEFlatButton.m */,
-				8BB124B01AF2184D00AC34DD /* UIColor+LEFlatButton.h */,
-				8BB124B11AF2184D00AC34DD /* UIColor+LEFlatButton.m */,
-				8BB124B21AF2184D00AC34DD /* UIImage+LEFlatButton.h */,
-				8BB124B31AF2184D00AC34DD /* UIImage+LEFlatButton.m */,
+				8BB124BC1AF21F8F00AC34DD /* XXNibBridge.h */,
+				8BB124BD1AF21F8F00AC34DD /* XXNibBridge.m */,
+				8BB124BE1AF21F8F00AC34DD /* XXNibConvention.h */,
+				8BB124BF1AF21F8F00AC34DD /* XXNibConvention.m */,
 			);
-			path = LEFlatButton;
-			sourceTree = "<group>";
-		};
-		8BB124B41AF2184D00AC34DD /* LEXibView */ = {
-			isa = PBXGroup;
-			children = (
-				8BB124B51AF2184D00AC34DD /* LEXibView.h */,
-				8BB124B61AF2184D00AC34DD /* LEXibView.m */,
-			);
-			path = LEXibView;
+			path = XXNibBridge;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,13 +194,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B3DC55E1AF2F8880012B951 /* UIImage+LESaleView.m in Sources */,
 				8B3E6E351AF184D800892FC8 /* LESaleView.m in Sources */,
-				8BB124B81AF2184D00AC34DD /* UIColor+LEFlatButton.m in Sources */,
-				8BB124B71AF2184D00AC34DD /* LEFlatButton.m in Sources */,
-				8BB124B91AF2184D00AC34DD /* UIImage+LEFlatButton.m in Sources */,
 				8B38570D1AF0B780004807F7 /* ViewController.m in Sources */,
-				8BB124BA1AF2184D00AC34DD /* LEXibView.m in Sources */,
 				8B38570A1AF0B780004807F7 /* AppDelegate.m in Sources */,
+				8BB124C01AF21F8F00AC34DD /* XXNibBridge.m in Sources */,
+				8BB124C11AF21F8F00AC34DD /* XXNibConvention.m in Sources */,
+				8B3DC55B1AF2E5890012B951 /* UITextField+LESaleView.m in Sources */,
 				8B3857071AF0B780004807F7 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
