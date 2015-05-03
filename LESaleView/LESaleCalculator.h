@@ -12,10 +12,8 @@
 
 @property (nonatomic, strong) NSNumberFormatter *numberFormatter;
 
-- (NSString *)currencyStringFromString:(NSString *)string;
+- (NSString *)currencyString:(NSString *)string;
 
-- (int)integerDigitsLengthFromString:(NSString *)string;
-
-- (NSNumber *)amountFromString:(NSString *)string;
+- (NSDecimalNumber *)amountFromString:(NSString *)string;
 
 @end

@@ -64,13 +64,14 @@
     self.layer.borderColor = self.gridColor.CGColor;
     self.layer.borderWidth = 1.0f;
     
+    // gridview
     self.gridView.backgroundColor = self.gridColor;
     
-    // textfields
+    // textfield
     self.textField.enabled = NO;
     self.textField.textColor = self.textColor;
     self.textField.font = self.font;
-    self.textField.placeholder = [self.saleCalculator currencyStringFromString:@""];
+    self.textField.placeholder = [self.saleCalculator currencyString:nil];
     
     // buttons
     for (UIButton *button in self.buttons) {
@@ -105,13 +106,38 @@
 
 - (IBAction)didTouchOnClearButton:(UIButton *)button
 {
+    if ([self.delegate respondsToSelector:@selector(saleViewShouldClear:)]) {
+        if (![self.delegate saleViewShouldClear:self]) {
+            return;
+        }
+    }
+    
     self.textField.text = nil;
+    
+    if ([self.delegate respondsToSelector:@selector(saleViewDidClear:)]) {
+        [self.delegate saleViewDidClear:self];
+    }
 }
 
 - (IBAction)didTouchOnDigitButton:(UIButton *)button
 {
     NSString *string = [self.textField.text stringByAppendingString:button.titleLabel.text];
-    self.textField.text = [self.saleCalculator currencyStringFromString:string];
+    NSNumber *amount = [self.saleCalculator amountFromString:string];
+    if (!amount.doubleValue) {
+        return;
+    }
+    
+    if ([self.delegate respondsToSelector:@selector(saleView:shouldInputDigit:)]) {
+        if (![self.delegate saleView:self shouldInputDigit:button.titleLabel.text]) {
+            return;
+        }
+    }
+    
+    self.textField.text = [self.saleCalculator.numberFormatter stringFromNumber:amount];
+    
+    if ([self.delegate respondsToSelector:@selector(saleView:didInputDigit:)]) {
+        [self.delegate saleView:self didInputDigit:button.titleLabel.text];
+    }
 }
 
 #pragma mark - Helpers

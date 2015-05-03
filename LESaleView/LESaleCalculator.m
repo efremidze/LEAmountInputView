@@ -21,31 +21,23 @@
 
 #pragma mark -
 
-- (NSString *)currencyStringFromString:(NSString *)string;
+- (NSString *)currencyString:(NSString *)string;
 {
-    NSNumber *number = [self amountFromString:string];
-    return [self.numberFormatter stringFromNumber:number];
+    NSDecimalNumber *amount = [self amountFromString:string];
+    return [self.numberFormatter stringFromNumber:amount];
 }
 
-- (int)integerDigitsLengthFromString:(NSString *)string;
+- (NSDecimalNumber *)amountFromString:(NSString *)string;
 {
-    double digits = [self digitsFromString:string];
-    return MAX(0, (int)log10(digits));
-}
-
-- (NSNumber *)amountFromString:(NSString *)string;
-{
-    double digits = [self digitsFromString:string];
-    double decimalPlace = pow(10.0, self.numberFormatter.minimumFractionDigits);
-    return @(digits / decimalPlace);
+    if (string.length) {
+        NSDecimalNumber *digits = [NSDecimalNumber decimalNumberWithString:[self sanitizedString:string]];
+        NSDecimalNumber *decimalPlace = (NSDecimalNumber *)[NSDecimalNumber numberWithDouble:pow(10.0, self.numberFormatter.minimumFractionDigits)];
+        return [digits decimalNumberByDividingBy:decimalPlace];
+    }
+    return [NSDecimalNumber zero];
 }
 
 #pragma mark - Private
-
-- (double)digitsFromString:(NSString *)string;
-{
-    return [[self sanitizedString:string] doubleValue];
-}
 
 - (NSString *)sanitizedString:(NSString *)string;
 {
