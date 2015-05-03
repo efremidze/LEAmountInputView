@@ -102,6 +102,16 @@
     return self.saleCalculator.numberFormatter.locale;
 }
 
+- (void)setAmount:(NSNumber *)amount
+{
+    self.textField.text = [self.saleCalculator.numberFormatter stringFromNumber:amount];
+}
+
+- (NSNumber *)amount;
+{
+    return [self.saleCalculator amountFromString:self.textField.text];
+}
+
 #pragma mark - IBActions
 
 - (IBAction)didTouchOnClearButton:(UIButton *)button
@@ -148,11 +158,6 @@
         return [UIColor orangeColor];
     }
     return [self textColor];
-}
-
-- (NSNumber *)amount;
-{
-    return [self.saleCalculator amountFromString:self.textField.text];
 }
 
 @end

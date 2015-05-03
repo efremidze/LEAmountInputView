@@ -30,6 +30,9 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="4XY-fu-mTI" secondAttribute="bottom" id="QQq-Rc-d6r"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="saleView" destination="4XY-fu-mTI" id="eEh-qL-4hn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

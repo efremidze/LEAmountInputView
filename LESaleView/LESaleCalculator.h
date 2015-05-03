@@ -14,6 +14,6 @@
 
 - (NSString *)currencyString:(NSString *)string;
 
-- (NSDecimalNumber *)amountFromString:(NSString *)string;
+- (NSNumber *)amountFromString:(NSString *)string;
 
 @end

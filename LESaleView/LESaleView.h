@@ -36,6 +36,6 @@
 
 @property (nonatomic, strong) NSLocale *locale;
 
-- (NSNumber *)amount;
+@property (nonatomic, strong) NSNumber *amount;
 
 @end

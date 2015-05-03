@@ -23,18 +23,18 @@
 
 - (NSString *)currencyString:(NSString *)string;
 {
-    NSDecimalNumber *amount = [self amountFromString:string];
+    NSNumber *amount = [self amountFromString:string];
     return [self.numberFormatter stringFromNumber:amount];
 }
 
-- (NSDecimalNumber *)amountFromString:(NSString *)string;
+- (NSNumber *)amountFromString:(NSString *)string;
 {
     if (string.length) {
         NSDecimalNumber *digits = [NSDecimalNumber decimalNumberWithString:[self sanitizedString:string]];
         NSDecimalNumber *decimalPlace = (NSDecimalNumber *)[NSDecimalNumber numberWithDouble:pow(10.0, self.numberFormatter.minimumFractionDigits)];
         return [digits decimalNumberByDividingBy:decimalPlace];
     }
-    return [NSDecimalNumber zero];
+    return @0;
 }
 
 #pragma mark - Private
