@@ -31,11 +31,9 @@ pod "LEAmountInputView"
 ### Example
 
 ```objectivec
-
 LEAmountInputView *amountInputView = [[LEAmountInputView alloc] initWithFrame:self.view.bounds numberStyle:NSNumberFormatterCurrencyStyle];
 amountInputView.delegate = self;
 [self.view addSubview:amountInputView];
-
 ```
 
 ### Storyboard
@@ -46,7 +44,7 @@ Works with storyboard.
 
 You can use `LEAmountInputViewDelegate` to observe input.
 
-For more details, see the `LEAmountInputViewDemo` project;
+For more details, see the `LEAmountInputViewDemo` project.
 
 ## Contributions
 
@@ -54,4 +52,4 @@ Contributions are totally welcome.
 
 ## License
 
-LESaleView is available under the MIT license. See the LICENSE file for more info.
+LEAmountInputView is available under the MIT license. See the LICENSE file for more info.
