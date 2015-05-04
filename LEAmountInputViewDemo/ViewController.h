@@ -1,8 +1,8 @@
 //
 //  ViewController.h
-//  LESaleViewDemo
+//  LEAmountInputViewDemo
 //
-//  Created by Lasha Efremidze on 4/28/15.
+//  Created by Lasha Efremidze on 5/3/15.
 //  Copyright (c) 2015 Lasha Efremidze. All rights reserved.
 //
 

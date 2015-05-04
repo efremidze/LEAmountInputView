@@ -1,6 +1,6 @@
 //
-//  UIImage+LESaleView.h
-//  LESaleView
+//  UIImage+LEAmountInputView.h
+//  LEAmountInputView
 //
 //  Created by Lasha Efremidze on 4/30/15.
 //  Copyright (c) 2015 Lasha Efremidze. All rights reserved.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIImage (LESaleView)
+@interface UIImage (LEAmountInputView)
 
 + (UIImage *)imageFromColor:(UIColor *)color;
 
