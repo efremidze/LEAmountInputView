@@ -9,7 +9,7 @@
 
 `LEAmountInputView` is an amount input view inspired by Square's design.
 
-![LEAmountInputView Screenshot](Screenshots/screenshot.gif)
+![LEAmountInputView Screenshot](Screenshots/example.gif)
 
 ## Installation
 
