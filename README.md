@@ -22,6 +22,8 @@ pod "LEAmountInputView"
 
 ## Usage
 
+See the `LEAmountInputViewDemo` project for example usage.
+
 ### Import
 
 ```objc
@@ -43,8 +45,6 @@ Works with storyboard.
 ### Optional
 
 You can use `LEAmountInputViewDelegate` to observe input.
-
-For more details, see the `LEAmountInputViewDemo` project.
 
 ## Contributions
 
