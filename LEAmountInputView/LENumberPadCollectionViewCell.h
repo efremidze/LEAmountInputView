@@ -1,5 +1,5 @@
 //
-//  LECollectionViewCell.h
+//  LENumberPadCollectionViewCell.h
 //  LEAmountInputView
 //
 //  Created by Lasha Efremidze on 5/13/15.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LECollectionViewCell : UICollectionViewCell
+@interface LENumberPadCollectionViewCell : UICollectionViewCell
 
 @property (nonatomic, strong) UIButton *button;
 

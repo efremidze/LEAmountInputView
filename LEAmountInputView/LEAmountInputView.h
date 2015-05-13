@@ -8,34 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@class LEAmountInputView;
+#import "LENumberPad.h"
 
-@protocol LEAmountInputViewDataSource <NSObject>
+@interface LEAmountInputView : UIView <LENumberPadDelegate>
 
-@optional
-- (NSInteger)numberOfColumnsInAmountInputView:(LEAmountInputView *)amountInputView;
-- (NSInteger)numberOfRowsInAmountInputView:(LEAmountInputView *)amountInputView;
-- (NSString *)amountInputView:(LEAmountInputView *)amountInputView buttonTitleForButtonAtIndexPath:(NSIndexPath *)indexPath;
-- (UIColor *)amountInputView:(LEAmountInputView *)amountInputView buttonTitleColorForButtonAtIndexPath:(NSIndexPath *)indexPath;
-- (UIFont *)amountInputView:(LEAmountInputView *)amountInputView buttonTitleFontForButtonAtIndexPath:(NSIndexPath *)indexPath;
-- (UIColor *)amountInputView:(LEAmountInputView *)amountInputView buttonBackgroundColorForButtonAtIndexPath:(NSIndexPath *)indexPath;
-- (UIColor *)amountInputView:(LEAmountInputView *)amountInputView buttonBackgroundHighlightedColorForButtonAtIndexPath:(NSIndexPath *)indexPath;
+@property (nonatomic, strong) UITextField *textField;
+@property (nonatomic, strong) LENumberPad *numberPad;
 
-@end
+@property (nonatomic, strong) NSNumberFormatter *numberFormatter;
+@property (nonatomic, strong) NSNumber *amount;
 
-@protocol LEAmountInputViewDelegate <NSObject>
-
-@optional
-- (void)amountInputView:(LEAmountInputView *)amountInputView didSelectButtonAtIndexPath:(NSIndexPath *)indexPath;
-
-@end
-
-@interface LEAmountInputView : UIView
-
-@property (nonatomic, weak) id<LEAmountInputViewDataSource> dataSource;
-@property (nonatomic, weak) id<LEAmountInputViewDelegate> delegate;
-
-- (UIButton *)buttonAtIndexPath:(NSIndexPath *)indexPath;
-- (NSIndexPath *)indexPathForButton:(UIButton *)button;
+- (instancetype)initWithFrame:(CGRect)frame numberStyle:(NSNumberFormatterStyle)numberStyle;
 
 @end

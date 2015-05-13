@@ -1,14 +1,14 @@
 //
-//  LECollectionViewCell.m
+//  LENumberPadCollectionViewCell.m
 //  LEAmountInputView
 //
 //  Created by Lasha Efremidze on 5/13/15.
 //  Copyright (c) 2015 Lasha Efremidze. All rights reserved.
 //
 
-#import "LECollectionViewCell.h"
+#import "LENumberPadCollectionViewCell.h"
 
-@implementation LECollectionViewCell
+@implementation LENumberPadCollectionViewCell
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -36,7 +36,7 @@
     [self.contentView addSubview:self.button];
 }
 
-#pragma mark - Override Accessors
+#pragma mark - Override Properties
 
 - (UIButton *)button
 {

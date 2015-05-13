@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "LEAmountInputView.h"
 
-@interface ViewController () <LEAmountInputViewDataSource, LEAmountInputViewDelegate>
+@interface ViewController ()
 
 @end
 
@@ -26,10 +26,8 @@
 
 - (void)setup
 {
-    LEAmountInputView *amountInputView = [[LEAmountInputView alloc] initWithFrame:self.view.bounds];
+    LEAmountInputView *amountInputView = [[LEAmountInputView alloc] initWithFrame:self.view.bounds numberStyle:NSNumberFormatterCurrencyStyle];
     amountInputView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    amountInputView.dataSource = self;
-    amountInputView.delegate = self;
     [self.view addSubview:amountInputView];
 }
 
