@@ -13,6 +13,11 @@
 
 @interface LEAmountInputView () <XXNibBridge>
 
+@property (nonatomic, weak) IBOutlet UIView *gridView;
+@property (nonatomic, weak) IBOutlet UIView *headerView;
+@property (nonatomic, weak) IBOutlet UITextField *textField;
+@property (nonatomic, strong) IBOutletCollection(UIButton) NSArray *buttons;
+
 @end
 
 @implementation LEAmountInputView
@@ -45,29 +50,35 @@
 
 - (void)commonInit
 {
-    self.gridColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
-    self.textColor = [UIColor colorWithWhite:0.3f alpha:1.0f];
-    self.font = [UIFont systemFontOfSize:40.0f];
+    self.backgroundColor = [UIColor whiteColor];
+    self.borderColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
+    
+    self.textFieldTextColor = [UIColor colorWithWhite:0.3f alpha:1.0f];
+    self.textFieldFont = [UIFont systemFontOfSize:40.0f];
+    
+    self.buttonTitleColor = [UIColor colorWithWhite:0.3f alpha:1.0f];
+    self.buttonTitleFont = [UIFont systemFontOfSize:40.0f];
+    self.buttonHighlightedColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
 }
 
 - (void)layoutSubviews
 {
     [super layoutSubviews];
     
-    self.layer.borderColor = self.gridColor.CGColor;
+    self.layer.borderColor = self.borderColor.CGColor;
     self.layer.borderWidth = 1.0f;
     
     // gridview
-    self.gridView.backgroundColor = self.gridColor;
+    self.gridView.backgroundColor = self.borderColor;
     
     // textfield
-    self.textField.textColor = self.textColor;
-    self.textField.font = self.font;
+    self.textField.textColor = self.textFieldTextColor;
+    self.textField.font = self.textFieldFont;
     self.textField.placeholder = [self currencyString:nil];
     
     // buttons
     for (UIButton *button in self.buttons) {
-        button.titleLabel.font = self.font;
+        button.titleLabel.font = self.buttonTitleFont;
         
         UIColor *titleColor = [self titleColorForButton:button];
         [button setTitleColor:titleColor forState:UIControlStateNormal];
@@ -76,7 +87,7 @@
         
         UIImage *backgroundImage = [UIImage imageFromColor:self.backgroundColor];
         [button setBackgroundImage:backgroundImage forState:UIControlStateNormal];
-        backgroundImage = [UIImage imageFromColor:self.gridColor];
+        backgroundImage = [UIImage imageFromColor:self.buttonHighlightedColor];
         [button setBackgroundImage:backgroundImage forState:UIControlStateHighlighted];
         [button setBackgroundImage:backgroundImage forState:UIControlStateSelected];
     }
@@ -143,7 +154,7 @@
     if ([button.titleLabel.text isEqualToString:@"C"]) {
         return [UIColor orangeColor];
     }
-    return [self textColor];
+    return self.buttonTitleColor;
 }
 
 - (NSString *)currencyString:(NSString *)string;
