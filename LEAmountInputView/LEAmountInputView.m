@@ -7,176 +7,198 @@
 //
 
 #import "LEAmountInputView.h"
+#import "LECollectionViewCell.h"
 #import "UIImage+LEAmountInputView.h"
 
-#import "XXNibBridge.h"
+@interface LEAmountInputView () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
-@interface LEAmountInputView () <XXNibBridge>
-
-@property (nonatomic, weak) IBOutlet UIView *gridView;
-@property (nonatomic, weak) IBOutlet UIView *headerView;
-@property (nonatomic, weak) IBOutlet UITextField *textField;
-@property (nonatomic, strong) IBOutletCollection(UIButton) NSArray *buttons;
+@property (nonatomic, strong) UICollectionView *collectionView;
 
 @end
 
 @implementation LEAmountInputView
 
-- (instancetype)initWithFrame:(CGRect)frame numberStyle:(NSNumberFormatterStyle)numberStyle;
+- (id)initWithFrame:(CGRect)frame
 {
-    if (self = [self initWithFrame:frame]) {
-        self.numberFormatter.numberStyle = numberStyle;
-    }
-    return self;
-}
-
-- (instancetype)initWithFrame:(CGRect)frame
-{
-    self = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] firstObject];
+    self = [super initWithFrame:frame];
     if (self) {
-        self.frame = frame;
-        [self commonInit];
+        [self initialize];
     }
     return self;
 }
 
-- (instancetype)initWithCoder:(NSCoder *)aDecoder
+- (id)initWithCoder:(NSCoder *)coder
 {
-    if (self = [super initWithCoder:aDecoder]) {
-        [self commonInit];
+    self = [super initWithCoder:coder];
+    if (self) {
+        [self initialize];
     }
     return self;
 }
 
-- (void)commonInit
+- (void)initialize;
 {
-    self.backgroundColor = [UIColor whiteColor];
-    self.borderColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
+    self.backgroundColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
     
-    self.textFieldTextColor = [UIColor colorWithWhite:0.3f alpha:1.0f];
-    self.textFieldFont = [UIFont systemFontOfSize:40.0f];
-    
-    self.buttonTitleColor = [UIColor colorWithWhite:0.3f alpha:1.0f];
-    self.buttonTitleFont = [UIFont systemFontOfSize:40.0f];
-    self.buttonHighlightedColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
+    [self addSubview:self.collectionView];
 }
 
 - (void)layoutSubviews
 {
     [super layoutSubviews];
     
-    self.layer.borderColor = self.borderColor.CGColor;
-    self.layer.borderWidth = 1.0f;
-    
-    // gridview
-    self.gridView.backgroundColor = self.borderColor;
-    
-    // textfield
-    self.textField.textColor = self.textFieldTextColor;
-    self.textField.font = self.textFieldFont;
-    self.textField.placeholder = [self currencyString:nil];
-    
-    // buttons
-    for (UIButton *button in self.buttons) {
-        button.titleLabel.font = self.buttonTitleFont;
-        
-        UIColor *titleColor = [self titleColorForButton:button];
-        [button setTitleColor:titleColor forState:UIControlStateNormal];
-        [button setTitleColor:titleColor forState:UIControlStateHighlighted];
-        [button setTitleColor:titleColor forState:UIControlStateSelected];
-        
-        UIImage *backgroundImage = [UIImage imageFromColor:self.backgroundColor];
-        [button setBackgroundImage:backgroundImage forState:UIControlStateNormal];
-        backgroundImage = [UIImage imageFromColor:self.buttonHighlightedColor];
-        [button setBackgroundImage:backgroundImage forState:UIControlStateHighlighted];
-        [button setBackgroundImage:backgroundImage forState:UIControlStateSelected];
+    [self.collectionView.collectionViewLayout invalidateLayout];
+}
+
+#pragma mark -
+
+- (UICollectionView *)collectionView
+{
+    if (!_collectionView) {
+        UICollectionViewFlowLayout *collectionViewLayout = [UICollectionViewFlowLayout new];
+        collectionViewLayout.minimumLineSpacing = 0.5f;
+        collectionViewLayout.minimumInteritemSpacing = 0.5f;
+        _collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:collectionViewLayout];
+        _collectionView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+        _collectionView.dataSource = self;
+        _collectionView.delegate = self;
+        _collectionView.backgroundColor = [UIColor clearColor];
+        _collectionView.allowsSelection = NO;
+        _collectionView.scrollEnabled = NO;
+        [_collectionView registerClass:[LECollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([LECollectionViewCell class])];
     }
+    return _collectionView;
 }
 
-#pragma mark - Override Properties
+#pragma mark - UICollectionViewDataSource
 
-- (NSNumberFormatter *)numberFormatter
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    if (!_numberFormatter) {
-        _numberFormatter = [NSNumberFormatter new];
-    }
-    return _numberFormatter;
+    return [self numberOfColumnsInAmountInputView] * [self numberOfRowsInAmountInputView];
 }
 
-- (void)setAmount:(NSNumber *)amount
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
 {
-    self.textField.text = [self.numberFormatter stringFromNumber:amount];
+    LECollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([LECollectionViewCell class]) forIndexPath:indexPath];
+    
+    NSString *title = [self buttonTitleForButtonAtIndexPath:indexPath];
+    [cell.button setTitle:title forState:UIControlStateNormal];
+    
+    UIColor *titleColor = [self buttonTitleColorForButtonAtIndexPath:indexPath];
+    [cell.button setTitleColor:titleColor forState:UIControlStateNormal];
+    
+    UIFont *font = [self buttonTitleFontForButtonAtIndexPath:indexPath];
+    cell.button.titleLabel.font = font;
+    
+    UIColor *backgroundColor = [self buttonBackgroundColorForButtonAtIndexPath:indexPath];
+    UIImage *backgroundImage = [UIImage imageFromColor:backgroundColor];
+    [cell.button setBackgroundImage:backgroundImage forState:UIControlStateNormal];
+    backgroundColor = [self buttonBackgroundHighlightedColorForButtonAtIndexPath:indexPath];
+    backgroundImage = [UIImage imageFromColor:backgroundColor];
+    [cell.button setBackgroundImage:backgroundImage forState:UIControlStateHighlighted];
+    [cell.button setBackgroundImage:backgroundImage forState:UIControlStateSelected];
+    
+    [cell.button addTarget:self action:@selector(didTouchOnButton:) forControlEvents:UIControlEventTouchUpInside];
+    
+    return cell;
 }
 
-- (NSNumber *)amount;
+#pragma mark - UICollectionViewDelegateFlowLayout
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewFlowLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
 {
-    return [self amountFromString:self.textField.text];
+    CGFloat width = collectionView.frame.size.width / [self numberOfColumnsInAmountInputView];
+    CGFloat height = collectionView.frame.size.height / [self numberOfRowsInAmountInputView];
+    return (CGSize){width - collectionViewLayout.minimumInteritemSpacing, height - collectionViewLayout.minimumLineSpacing};
 }
 
 #pragma mark - IBActions
 
-- (IBAction)didTouchOnClearButton:(UIButton *)button
+- (IBAction)didTouchOnButton:(UIButton *)button
 {
-    if ([self.delegate respondsToSelector:@selector(amountInputViewShouldClear:)]) {
-        if (![self.delegate amountInputViewShouldClear:self]) {
-            return;
-        }
-    }
-    
-    self.textField.text = nil;
-    
-    if ([self.delegate respondsToSelector:@selector(amountInputViewDidClear:)]) {
-        [self.delegate amountInputViewDidClear:self];
-    }
-}
-
-- (IBAction)didTouchOnDigitButton:(UIButton *)button
-{
-    if ([self.delegate respondsToSelector:@selector(amountInputView:shouldInputDigit:)]) {
-        if (![self.delegate amountInputView:self shouldInputDigit:button.titleLabel.text]) {
-            return;
-        }
-    }
-    
-    NSString *string = [self.textField.text stringByAppendingString:button.titleLabel.text];
-    NSNumber *amount = [self amountFromString:string];
-    self.textField.text = (amount.doubleValue == 0) ? nil : [self.numberFormatter stringFromNumber:amount];
-    
-    if ([self.delegate respondsToSelector:@selector(amountInputView:didInputDigit:)]) {
-        [self.delegate amountInputView:self didInputDigit:button.titleLabel.text];
+    if ([self.delegate respondsToSelector:@selector(amountInputView:didSelectButtonAtIndexPath:)]) {
+        [self.delegate amountInputView:self didSelectButtonAtIndexPath:[self indexPathForButton:button]];
     }
 }
 
 #pragma mark - Helpers
 
-- (UIColor *)titleColorForButton:(UIButton *)button;
+- (UIButton *)buttonAtIndexPath:(NSIndexPath *)indexPath;
 {
-    if ([button.titleLabel.text isEqualToString:@"C"]) {
+    LECollectionViewCell *cell = (LECollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+    return cell.button;
+}
+
+- (NSIndexPath *)indexPathForButton:(UIButton *)button;
+{
+    CGPoint point = [button convertPoint:CGPointZero toView:self.collectionView];
+    return [self.collectionView indexPathForItemAtPoint:point];
+}
+
+#pragma mark - Private
+
+- (NSInteger)numberOfColumnsInAmountInputView;
+{
+    if ([self.dataSource respondsToSelector:@selector(numberOfColumnsInAmountInputView:)]) {
+        return [self.dataSource numberOfColumnsInAmountInputView:self];
+    }
+    return 3;
+}
+
+- (NSInteger)numberOfRowsInAmountInputView;
+{
+    if ([self.dataSource respondsToSelector:@selector(numberOfRowsInAmountInputView:)]) {
+        return [self.dataSource numberOfRowsInAmountInputView:self];
+    }
+    return 4;
+}
+
+- (NSString *)buttonTitleForButtonAtIndexPath:(NSIndexPath *)indexPath;
+{
+    if ([self.dataSource respondsToSelector:@selector(amountInputView:buttonTitleForButtonAtIndexPath:)]) {
+        return [self.dataSource amountInputView:self buttonTitleForButtonAtIndexPath:indexPath];
+    } else if (indexPath.item == 9) {
+        return @"C";
+    } else if (indexPath.item == 10) {
+        return @"0";
+    } else if (indexPath.item == 11) {
+        return @"00";
+    }
+    return [NSString stringWithFormat:@"%lu", indexPath.item + 1];
+}
+
+- (UIColor *)buttonTitleColorForButtonAtIndexPath:(NSIndexPath *)indexPath;
+{
+    if ([self.dataSource respondsToSelector:@selector(amountInputView:buttonTitleColorForButtonAtIndexPath:)]) {
+        return [self.dataSource amountInputView:self buttonTitleColorForButtonAtIndexPath:indexPath];
+    } else if (indexPath.item == 9) {
         return [UIColor orangeColor];
     }
-    return self.buttonTitleColor;
+    return [UIColor colorWithWhite:0.3f alpha:1.0f];
 }
 
-- (NSString *)currencyString:(NSString *)string;
+- (UIFont *)buttonTitleFontForButtonAtIndexPath:(NSIndexPath *)indexPath;
 {
-    NSNumber *amount = [self amountFromString:string];
-    return [self.numberFormatter stringFromNumber:amount];
-}
-
-- (NSNumber *)amountFromString:(NSString *)string;
-{
-    string = [self sanitizedString:string];
-    if (string.doubleValue == 0) {
-        return @0;
+    if ([self.dataSource respondsToSelector:@selector(amountInputView:buttonTitleFontForButtonAtIndexPath:)]) {
+        return [self.dataSource amountInputView:self buttonTitleFontForButtonAtIndexPath:indexPath];
     }
-    NSDecimalNumber *digits = [NSDecimalNumber decimalNumberWithString:string];
-    NSDecimalNumber *decimalPlace = (NSDecimalNumber *)[NSDecimalNumber numberWithDouble:pow(10.0, self.numberFormatter.minimumFractionDigits)];
-    return [digits decimalNumberByDividingBy:decimalPlace];
+    return [UIFont systemFontOfSize:40.0f];
 }
 
-- (NSString *)sanitizedString:(NSString *)string;
+- (UIColor *)buttonBackgroundColorForButtonAtIndexPath:(NSIndexPath *)indexPath;
 {
-    return [[string componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:[NSString string]];
+    if ([self.dataSource respondsToSelector:@selector(amountInputView:buttonBackgroundColorForButtonAtIndexPath:)]) {
+        return [self.dataSource amountInputView:self buttonBackgroundColorForButtonAtIndexPath:indexPath];
+    }
+    return [UIColor whiteColor];
+}
+
+- (UIColor *)buttonBackgroundHighlightedColorForButtonAtIndexPath:(NSIndexPath *)indexPath;
+{
+    if ([self.dataSource respondsToSelector:@selector(amountInputView:buttonBackgroundHighlightedColorForButtonAtIndexPath:)]) {
+        return [self.dataSource amountInputView:self buttonBackgroundHighlightedColorForButtonAtIndexPath:indexPath];
+    }
+    return [UIColor colorWithWhite:0.9f alpha:1.0f];
 }
 
 @end

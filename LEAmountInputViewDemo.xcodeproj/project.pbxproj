@@ -14,10 +14,8 @@
 		8B2E929B1AF6EB9A00F94CB6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B2E929A1AF6EB9A00F94CB6 /* Images.xcassets */; };
 		8B2E929E1AF6EB9A00F94CB6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B2E929C1AF6EB9A00F94CB6 /* LaunchScreen.xib */; };
 		8B2E92C11AF6EC1300F94CB6 /* LEAmountInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2E92B71AF6EC1300F94CB6 /* LEAmountInputView.m */; };
-		8B2E92C21AF6EC1300F94CB6 /* LEAmountInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B2E92B81AF6EC1300F94CB6 /* LEAmountInputView.xib */; };
-		8B2E92C31AF6EC1300F94CB6 /* UIImage+LEAmountInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2E92BA1AF6EC1300F94CB6 /* UIImage+LEAmountInputView.m */; };
-		8B2E92C41AF6EC1300F94CB6 /* XXNibBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2E92BD1AF6EC1300F94CB6 /* XXNibBridge.m */; };
-		8B2E92C51AF6EC1300F94CB6 /* XXNibConvention.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2E92BF1AF6EC1300F94CB6 /* XXNibConvention.m */; };
+		8B3FBB951B03E13F00DE7B2F /* UIImage+LEAmountInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3FBB941B03E13F00DE7B2F /* UIImage+LEAmountInputView.m */; };
+		8B3FBB9B1B03FA3700DE7B2F /* LECollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3FBB9A1B03FA3700DE7B2F /* LECollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,13 +31,10 @@
 		8B2E929D1AF6EB9A00F94CB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		8B2E92B61AF6EC1300F94CB6 /* LEAmountInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEAmountInputView.h; sourceTree = "<group>"; };
 		8B2E92B71AF6EC1300F94CB6 /* LEAmountInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEAmountInputView.m; sourceTree = "<group>"; };
-		8B2E92B81AF6EC1300F94CB6 /* LEAmountInputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LEAmountInputView.xib; sourceTree = "<group>"; };
-		8B2E92B91AF6EC1300F94CB6 /* UIImage+LEAmountInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LEAmountInputView.h"; sourceTree = "<group>"; };
-		8B2E92BA1AF6EC1300F94CB6 /* UIImage+LEAmountInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LEAmountInputView.m"; sourceTree = "<group>"; };
-		8B2E92BC1AF6EC1300F94CB6 /* XXNibBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXNibBridge.h; sourceTree = "<group>"; };
-		8B2E92BD1AF6EC1300F94CB6 /* XXNibBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXNibBridge.m; sourceTree = "<group>"; };
-		8B2E92BE1AF6EC1300F94CB6 /* XXNibConvention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXNibConvention.h; sourceTree = "<group>"; };
-		8B2E92BF1AF6EC1300F94CB6 /* XXNibConvention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXNibConvention.m; sourceTree = "<group>"; };
+		8B3FBB931B03E13F00DE7B2F /* UIImage+LEAmountInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LEAmountInputView.h"; sourceTree = "<group>"; };
+		8B3FBB941B03E13F00DE7B2F /* UIImage+LEAmountInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LEAmountInputView.m"; sourceTree = "<group>"; };
+		8B3FBB991B03FA3700DE7B2F /* LECollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LECollectionViewCell.h; sourceTree = "<group>"; };
+		8B3FBB9A1B03FA3700DE7B2F /* LECollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LECollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,23 +94,12 @@
 			children = (
 				8B2E92B61AF6EC1300F94CB6 /* LEAmountInputView.h */,
 				8B2E92B71AF6EC1300F94CB6 /* LEAmountInputView.m */,
-				8B2E92B81AF6EC1300F94CB6 /* LEAmountInputView.xib */,
-				8B2E92B91AF6EC1300F94CB6 /* UIImage+LEAmountInputView.h */,
-				8B2E92BA1AF6EC1300F94CB6 /* UIImage+LEAmountInputView.m */,
-				8B2E92BB1AF6EC1300F94CB6 /* XXNibBridge */,
+				8B3FBB991B03FA3700DE7B2F /* LECollectionViewCell.h */,
+				8B3FBB9A1B03FA3700DE7B2F /* LECollectionViewCell.m */,
+				8B3FBB931B03E13F00DE7B2F /* UIImage+LEAmountInputView.h */,
+				8B3FBB941B03E13F00DE7B2F /* UIImage+LEAmountInputView.m */,
 			);
 			path = LEAmountInputView;
-			sourceTree = "<group>";
-		};
-		8B2E92BB1AF6EC1300F94CB6 /* XXNibBridge */ = {
-			isa = PBXGroup;
-			children = (
-				8B2E92BC1AF6EC1300F94CB6 /* XXNibBridge.h */,
-				8B2E92BD1AF6EC1300F94CB6 /* XXNibBridge.m */,
-				8B2E92BE1AF6EC1300F94CB6 /* XXNibConvention.h */,
-				8B2E92BF1AF6EC1300F94CB6 /* XXNibConvention.m */,
-			);
-			path = XXNibBridge;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,7 +160,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B2E92991AF6EB9A00F94CB6 /* Main.storyboard in Resources */,
-				8B2E92C21AF6EC1300F94CB6 /* LEAmountInputView.xib in Resources */,
 				8B2E929E1AF6EB9A00F94CB6 /* LaunchScreen.xib in Resources */,
 				8B2E929B1AF6EB9A00F94CB6 /* Images.xcassets in Resources */,
 			);
@@ -189,13 +172,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B2E92C51AF6EC1300F94CB6 /* XXNibConvention.m in Sources */,
+				8B3FBB951B03E13F00DE7B2F /* UIImage+LEAmountInputView.m in Sources */,
 				8B2E92961AF6EB9A00F94CB6 /* ViewController.m in Sources */,
-				8B2E92C31AF6EC1300F94CB6 /* UIImage+LEAmountInputView.m in Sources */,
-				8B2E92C41AF6EC1300F94CB6 /* XXNibBridge.m in Sources */,
 				8B2E92931AF6EB9A00F94CB6 /* AppDelegate.m in Sources */,
 				8B2E92901AF6EB9A00F94CB6 /* main.m in Sources */,
 				8B2E92C11AF6EC1300F94CB6 /* LEAmountInputView.m in Sources */,
+				8B3FBB9B1B03FA3700DE7B2F /* LECollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

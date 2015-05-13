@@ -10,36 +10,32 @@
 
 @class LEAmountInputView;
 
+@protocol LEAmountInputViewDataSource <NSObject>
+
+@optional
+- (NSInteger)numberOfColumnsInAmountInputView:(LEAmountInputView *)amountInputView;
+- (NSInteger)numberOfRowsInAmountInputView:(LEAmountInputView *)amountInputView;
+- (NSString *)amountInputView:(LEAmountInputView *)amountInputView buttonTitleForButtonAtIndexPath:(NSIndexPath *)indexPath;
+- (UIColor *)amountInputView:(LEAmountInputView *)amountInputView buttonTitleColorForButtonAtIndexPath:(NSIndexPath *)indexPath;
+- (UIFont *)amountInputView:(LEAmountInputView *)amountInputView buttonTitleFontForButtonAtIndexPath:(NSIndexPath *)indexPath;
+- (UIColor *)amountInputView:(LEAmountInputView *)amountInputView buttonBackgroundColorForButtonAtIndexPath:(NSIndexPath *)indexPath;
+- (UIColor *)amountInputView:(LEAmountInputView *)amountInputView buttonBackgroundHighlightedColorForButtonAtIndexPath:(NSIndexPath *)indexPath;
+
+@end
+
 @protocol LEAmountInputViewDelegate <NSObject>
 
 @optional
-- (BOOL)amountInputView:(LEAmountInputView *)amountInputView shouldInputDigit:(NSString *)digit;
-- (void)amountInputView:(LEAmountInputView *)amountInputView didInputDigit:(NSString *)digit;
-- (BOOL)amountInputViewShouldClear:(LEAmountInputView *)amountInputView;
-- (void)amountInputViewDidClear:(LEAmountInputView *)amountInputView;
+- (void)amountInputView:(LEAmountInputView *)amountInputView didSelectButtonAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 
 @interface LEAmountInputView : UIView
 
+@property (nonatomic, weak) id<LEAmountInputViewDataSource> dataSource;
 @property (nonatomic, weak) id<LEAmountInputViewDelegate> delegate;
 
-@property (nonatomic, strong) NSNumberFormatter *numberFormatter;
-@property (nonatomic, strong) NSNumber *amount;
-
-// Customize UI
-
-@property (nonatomic, strong) UIColor *borderColor;
-
-@property (nonatomic, strong) UIColor *textFieldTextColor;
-@property (nonatomic, strong) UIFont *textFieldFont;
-
-@property (nonatomic, strong) UIColor *buttonTitleColor;
-@property (nonatomic, strong) UIFont *buttonTitleFont;
-@property (nonatomic, strong) UIColor *buttonHighlightedColor;
-
-// Initializers
-
-- (instancetype)initWithFrame:(CGRect)frame numberStyle:(NSNumberFormatterStyle)numberStyle;
+- (UIButton *)buttonAtIndexPath:(NSIndexPath *)indexPath;
+- (NSIndexPath *)indexPathForButton:(UIButton *)button;
 
 @end
