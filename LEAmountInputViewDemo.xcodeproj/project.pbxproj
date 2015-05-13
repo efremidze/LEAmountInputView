@@ -14,7 +14,7 @@
 		8B2E929B1AF6EB9A00F94CB6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B2E929A1AF6EB9A00F94CB6 /* Images.xcassets */; };
 		8B2E929E1AF6EB9A00F94CB6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B2E929C1AF6EB9A00F94CB6 /* LaunchScreen.xib */; };
 		8B2E92C11AF6EC1300F94CB6 /* LEAmountInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B2E92B71AF6EC1300F94CB6 /* LEAmountInputView.m */; };
-		8B3FBB951B03E13F00DE7B2F /* UIImage+LEAmountInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3FBB941B03E13F00DE7B2F /* UIImage+LEAmountInputView.m */; };
+		8B3FBB951B03E13F00DE7B2F /* UIImage+LENumberPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3FBB941B03E13F00DE7B2F /* UIImage+LENumberPad.m */; };
 		8B3FBB9E1B0402B700DE7B2F /* LENumberPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3FBB9D1B0402B700DE7B2F /* LENumberPad.m */; };
 		8B3FBBA11B04036800DE7B2F /* LENumberPadCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3FBBA01B04036800DE7B2F /* LENumberPadCollectionViewCell.m */; };
 /* End PBXBuildFile section */
@@ -32,8 +32,8 @@
 		8B2E929D1AF6EB9A00F94CB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		8B2E92B61AF6EC1300F94CB6 /* LEAmountInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEAmountInputView.h; sourceTree = "<group>"; };
 		8B2E92B71AF6EC1300F94CB6 /* LEAmountInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEAmountInputView.m; sourceTree = "<group>"; };
-		8B3FBB931B03E13F00DE7B2F /* UIImage+LEAmountInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LEAmountInputView.h"; sourceTree = "<group>"; };
-		8B3FBB941B03E13F00DE7B2F /* UIImage+LEAmountInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LEAmountInputView.m"; sourceTree = "<group>"; };
+		8B3FBB931B03E13F00DE7B2F /* UIImage+LENumberPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LENumberPad.h"; sourceTree = "<group>"; };
+		8B3FBB941B03E13F00DE7B2F /* UIImage+LENumberPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LENumberPad.m"; sourceTree = "<group>"; };
 		8B3FBB9C1B0402B700DE7B2F /* LENumberPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LENumberPad.h; sourceTree = "<group>"; };
 		8B3FBB9D1B0402B700DE7B2F /* LENumberPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LENumberPad.m; sourceTree = "<group>"; };
 		8B3FBB9F1B04036800DE7B2F /* LENumberPadCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LENumberPadCollectionViewCell.h; sourceTree = "<group>"; };
@@ -101,8 +101,8 @@
 				8B3FBB9D1B0402B700DE7B2F /* LENumberPad.m */,
 				8B3FBB9F1B04036800DE7B2F /* LENumberPadCollectionViewCell.h */,
 				8B3FBBA01B04036800DE7B2F /* LENumberPadCollectionViewCell.m */,
-				8B3FBB931B03E13F00DE7B2F /* UIImage+LEAmountInputView.h */,
-				8B3FBB941B03E13F00DE7B2F /* UIImage+LEAmountInputView.m */,
+				8B3FBB931B03E13F00DE7B2F /* UIImage+LENumberPad.h */,
+				8B3FBB941B03E13F00DE7B2F /* UIImage+LENumberPad.m */,
 			);
 			path = LEAmountInputView;
 			sourceTree = "<group>";
@@ -178,7 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B3FBBA11B04036800DE7B2F /* LENumberPadCollectionViewCell.m in Sources */,
-				8B3FBB951B03E13F00DE7B2F /* UIImage+LEAmountInputView.m in Sources */,
+				8B3FBB951B03E13F00DE7B2F /* UIImage+LENumberPad.m in Sources */,
 				8B2E92961AF6EB9A00F94CB6 /* ViewController.m in Sources */,
 				8B3FBB9E1B0402B700DE7B2F /* LENumberPad.m in Sources */,
 				8B2E92931AF6EB9A00F94CB6 /* AppDelegate.m in Sources */,

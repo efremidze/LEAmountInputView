@@ -8,7 +8,7 @@
 
 #import "LENumberPad.h"
 #import "LENumberPadCollectionViewCell.h"
-#import "UIImage+LEAmountInputView.h"
+#import "UIImage+LENumberPad.h"
 
 @interface LENumberPad () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 

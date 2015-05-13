@@ -1,14 +1,14 @@
 //
-//  UIImage+LEAmountInputView.m
+//  UIImage+LENumberPad.m
 //  LEAmountInputView
 //
 //  Created by Lasha Efremidze on 4/30/15.
 //  Copyright (c) 2015 Lasha Efremidze. All rights reserved.
 //
 
-#import "UIImage+LEAmountInputView.h"
+#import "UIImage+LENumberPad.h"
 
-@implementation UIImage (LEAmountInputView)
+@implementation UIImage (LENumberPad)
 
 + (UIImage *)imageFromColor:(UIColor *)color;
 {

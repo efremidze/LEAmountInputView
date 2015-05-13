@@ -1,5 +1,5 @@
 //
-//  UIImage+LEAmountInputView.h
+//  UIImage+LENumberPad.h
 //  LEAmountInputView
 //
 //  Created by Lasha Efremidze on 4/30/15.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIImage (LEAmountInputView)
+@interface UIImage (LENumberPad)
 
 + (UIImage *)imageFromColor:(UIColor *)color;
 
