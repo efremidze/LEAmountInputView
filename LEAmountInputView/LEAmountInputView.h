@@ -10,7 +10,7 @@
 
 #import "LENumberPad.h"
 
-@interface LEAmountInputView : UIView <LENumberPadDelegate>
+@interface LEAmountInputView : UIView <LENumberPadDataSource, LENumberPadDelegate>
 
 @property (nonatomic, strong) UITextField *textField;
 @property (nonatomic, strong) LENumberPad *numberPad;

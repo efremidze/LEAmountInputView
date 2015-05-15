@@ -41,6 +41,10 @@
     self.backgroundColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
     
     [self addSubview:self.collectionView];
+    
+    NSDictionary *views = @{@"collectionView": self.collectionView};
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|[collectionView]|" options:0 metrics:0 views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[collectionView]|" options:0 metrics:0 views:views]];
 }
 
 - (void)layoutSubviews
@@ -56,10 +60,10 @@
 {
     if (!_collectionView) {
         UICollectionViewFlowLayout *collectionViewLayout = [UICollectionViewFlowLayout new];
-        collectionViewLayout.minimumLineSpacing = 0.5f;
-        collectionViewLayout.minimumInteritemSpacing = 0.5f;
-        _collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:collectionViewLayout];
-        _collectionView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+        collectionViewLayout.minimumLineSpacing = 1.0f;
+        collectionViewLayout.minimumInteritemSpacing = 1.0f;
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:collectionViewLayout];
+        _collectionView.translatesAutoresizingMaskIntoConstraints = NO;
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
         _collectionView.backgroundColor = [UIColor clearColor];
@@ -135,70 +139,41 @@
     return [self.collectionView indexPathForItemAtPoint:point];
 }
 
-#pragma mark - Private
-
 - (NSInteger)numberOfColumns;
 {
-    if ([self.dataSource respondsToSelector:@selector(numberOfColumnsInNumberPad:)]) {
-        return [self.dataSource numberOfColumnsInNumberPad:self];
-    }
-    return 3;
+    return [self.dataSource numberOfColumnsInNumberPad:self];
 }
 
 - (NSInteger)numberOfRows;
 {
-    if ([self.dataSource respondsToSelector:@selector(numberOfRowsInNumberPad:)]) {
-        return [self.dataSource numberOfRowsInNumberPad:self];
-    }
-    return 4;
+    return [self.dataSource numberOfRowsInNumberPad:self];
 }
+
+#pragma mark - Private
 
 - (NSString *)buttonTitleForButtonAtIndexPath:(NSIndexPath *)indexPath;
 {
-    if ([self.dataSource respondsToSelector:@selector(numberPad:buttonTitleForButtonAtIndexPath:)]) {
-        return [self.dataSource numberPad:self buttonTitleForButtonAtIndexPath:indexPath];
-    } else if (indexPath.item == 9) {
-        return @"C";
-    } else if (indexPath.item == 10) {
-        return @"0";
-    } else if (indexPath.item == 11) {
-        return @"00";
-    }
-    return [NSString stringWithFormat:@"%lu", indexPath.item + 1];
+    return [self.dataSource numberPad:self buttonTitleForButtonAtIndexPath:indexPath];
 }
 
 - (UIColor *)buttonTitleColorForButtonAtIndexPath:(NSIndexPath *)indexPath;
 {
-    if ([self.dataSource respondsToSelector:@selector(numberPad:buttonTitleColorForButtonAtIndexPath:)]) {
-        return [self.dataSource numberPad:self buttonTitleColorForButtonAtIndexPath:indexPath];
-    } else if (indexPath.item == 9) {
-        return [UIColor orangeColor];
-    }
-    return [UIColor colorWithWhite:0.3f alpha:1.0f];
+    return [self.dataSource numberPad:self buttonTitleColorForButtonAtIndexPath:indexPath];
 }
 
 - (UIFont *)buttonTitleFontForButtonAtIndexPath:(NSIndexPath *)indexPath;
 {
-    if ([self.dataSource respondsToSelector:@selector(numberPad:buttonTitleFontForButtonAtIndexPath:)]) {
-        return [self.dataSource numberPad:self buttonTitleFontForButtonAtIndexPath:indexPath];
-    }
-    return [UIFont systemFontOfSize:40.0f];
+    return [self.dataSource numberPad:self buttonTitleFontForButtonAtIndexPath:indexPath];
 }
 
 - (UIColor *)buttonBackgroundColorForButtonAtIndexPath:(NSIndexPath *)indexPath;
 {
-    if ([self.dataSource respondsToSelector:@selector(numberPad:buttonBackgroundColorForButtonAtIndexPath:)]) {
-        return [self.dataSource numberPad:self buttonBackgroundColorForButtonAtIndexPath:indexPath];
-    }
-    return [UIColor whiteColor];
+    return [self.dataSource numberPad:self buttonBackgroundColorForButtonAtIndexPath:indexPath];
 }
 
 - (UIColor *)buttonBackgroundHighlightedColorForButtonAtIndexPath:(NSIndexPath *)indexPath;
 {
-    if ([self.dataSource respondsToSelector:@selector(numberPad:buttonBackgroundHighlightedColorForButtonAtIndexPath:)]) {
-        return [self.dataSource numberPad:self buttonBackgroundHighlightedColorForButtonAtIndexPath:indexPath];
-    }
-    return [UIColor colorWithWhite:0.9f alpha:1.0f];
+    return [self.dataSource numberPad:self buttonBackgroundHighlightedColorForButtonAtIndexPath:indexPath];
 }
 
 @end

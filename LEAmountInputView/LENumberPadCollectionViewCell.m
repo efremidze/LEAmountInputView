@@ -34,6 +34,10 @@
     self.layer.shouldRasterize = YES;
     
     [self.contentView addSubview:self.button];
+    
+    NSDictionary *views = @{@"button": self.button};
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|[button]|" options:0 metrics:0 views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[button]|" options:0 metrics:0 views:views]];
 }
 
 #pragma mark - Override Properties
@@ -42,8 +46,7 @@
 {
     if (!_button) {
         _button = [UIButton buttonWithType:UIButtonTypeCustom];
-        _button.frame = self.contentView.frame;
-        _button.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+        _button.translatesAutoresizingMaskIntoConstraints = NO;
         _button.titleLabel.textAlignment = NSTextAlignmentCenter;
     }
     return _button;

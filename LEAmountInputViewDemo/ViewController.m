@@ -26,9 +26,13 @@
 
 - (void)setup
 {
-    LEAmountInputView *amountInputView = [[LEAmountInputView alloc] initWithFrame:self.view.bounds numberStyle:NSNumberFormatterCurrencyStyle];
-    amountInputView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    LEAmountInputView *amountInputView = [[LEAmountInputView alloc] initWithFrame:CGRectZero numberStyle:NSNumberFormatterCurrencyStyle];
+    amountInputView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:amountInputView];
+    
+    NSDictionary *views = NSDictionaryOfVariableBindings(amountInputView);
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-10-[amountInputView]-10-|" options:0 metrics:0 views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[amountInputView]-10-|" options:0 metrics:0 views:views]];
 }
 
 @end

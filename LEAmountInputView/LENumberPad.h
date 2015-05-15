@@ -12,7 +12,6 @@
 
 @protocol LENumberPadDataSource <NSObject>
 
-@optional
 - (NSInteger)numberOfColumnsInNumberPad:(LENumberPad *)numberPad;
 - (NSInteger)numberOfRowsInNumberPad:(LENumberPad *)numberPad;
 - (NSString *)numberPad:(LENumberPad *)numberPad buttonTitleForButtonAtIndexPath:(NSIndexPath *)indexPath;
@@ -37,5 +36,8 @@
 
 - (UIButton *)buttonAtIndexPath:(NSIndexPath *)indexPath;
 - (NSIndexPath *)indexPathForButton:(UIButton *)button;
+
+- (NSInteger)numberOfColumns;
+- (NSInteger)numberOfRows;
 
 @end
