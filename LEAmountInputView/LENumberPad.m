@@ -111,9 +111,16 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewFlowLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
 {
-    CGFloat width = collectionView.frame.size.width / [self numberOfColumns];
-    CGFloat height = collectionView.frame.size.height / [self numberOfRows];
-    return (CGSize){width - collectionViewLayout.minimumInteritemSpacing, height - collectionViewLayout.minimumLineSpacing};
+    NSInteger numberOfColumns = [self numberOfColumns];
+    NSInteger numberOfRows = [self numberOfRows];
+    
+    CGFloat width = collectionView.frame.size.width / numberOfColumns;
+    CGFloat height = collectionView.frame.size.height / numberOfRows;
+    
+    CGFloat interitemSpacing = collectionViewLayout.minimumInteritemSpacing * (((float)numberOfColumns - 1.0f) / (float)numberOfColumns);
+    CGFloat lineSpacing = collectionViewLayout.minimumLineSpacing * (((float)numberOfRows - 1.0f) / (float)numberOfRows);
+    
+    return (CGSize){width - interitemSpacing, height - lineSpacing};
 }
 
 #pragma mark - IBActions
