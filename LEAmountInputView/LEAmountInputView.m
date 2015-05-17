@@ -127,7 +127,7 @@
     } else if (indexPath.item == 11) {
         return @"00";
     }
-    return [NSString stringWithFormat:@"%ld", indexPath.item + 1];
+    return [NSString stringWithFormat:@"%d", (int)indexPath.item + 1];
 }
 
 - (UIColor *)numberPad:(LENumberPad *)numberPad buttonTitleColorForButtonAtIndexPath:(NSIndexPath *)indexPath;
