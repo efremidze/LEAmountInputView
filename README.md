@@ -33,18 +33,9 @@ See the `LEAmountInputViewDemo` project for example usage.
 ### Example
 
 ```objectivec
-LEAmountInputView *amountInputView = [[LEAmountInputView alloc] initWithFrame:self.view.bounds numberStyle:NSNumberFormatterCurrencyStyle];
-amountInputView.delegate = self;
+LEAmountInputView *amountInputView = [[LEAmountInputView alloc] initWithFrame:self.view.frame numberStyle:NSNumberFormatterCurrencyStyle];
 [self.view addSubview:amountInputView];
 ```
-
-### Storyboard
-
-Works with storyboard.
-
-### Optional
-
-You can use `LEAmountInputViewDelegate` to observe input.
 
 ## Contributions
 

@@ -29,6 +29,11 @@
 
 @end
 
+/**
+ *  The `LENumberPad` class is a number pad view.
+ *
+ *  Customize using the `dataSource` and `delegate` protocols.
+ */
 @interface LENumberPad : UIView
 
 @property (nonatomic, weak) id<LENumberPadDataSource> dataSource;

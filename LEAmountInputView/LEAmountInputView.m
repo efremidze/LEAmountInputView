@@ -72,6 +72,7 @@
         _textField.font = [UIFont systemFontOfSize:40.0f];
         _textField.textAlignment = NSTextAlignmentRight;
         _textField.placeholder = [self currencyString:nil];
+        _textField.enabled = NO;
     }
     return _textField;
 }
@@ -126,7 +127,7 @@
     } else if (indexPath.item == 11) {
         return @"00";
     }
-    return [NSString stringWithFormat:@"%lu", indexPath.item + 1];
+    return [NSString stringWithFormat:@"%ld", indexPath.item + 1];
 }
 
 - (UIColor *)numberPad:(LENumberPad *)numberPad buttonTitleColorForButtonAtIndexPath:(NSIndexPath *)indexPath;
