@@ -7,8 +7,9 @@
 //
 
 #import "LEAmountInputView.h"
+#import "LENumberPad.h"
 
-@interface LEAmountInputView ()
+@interface LEAmountInputView () <LENumberPadDataSource, LENumberPadDelegate>
 
 @end
 
@@ -98,7 +99,11 @@
 
 - (void)setAmount:(NSNumber *)amount
 {
-    self.textField.text = [self.numberFormatter stringFromNumber:amount];
+    if (amount.doubleValue) {
+        self.textField.text = [self.numberFormatter stringFromNumber:amount];
+    } else {
+        self.textField.text = nil;
+    }
 }
 
 - (NSNumber *)amount;
@@ -157,19 +162,39 @@
 
 - (void)numberPad:(LENumberPad *)numberPad didSelectButtonAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.item == 9) {
-        self.textField.text = nil;
-    } else {
+    NSNumber *amount = @0;
+    
+    if (indexPath.item != 9) {
         UIButton *button = [numberPad buttonAtIndexPath:indexPath];
         NSString *string = [self.textField.text stringByAppendingString:button.titleLabel.text];
-        NSNumber *amount = [self amountFromString:string];
-        if ([self shouldInputDigit:amount]) {
-            self.textField.text = (amount.doubleValue == 0) ? nil : [self.numberFormatter stringFromNumber:amount];
-        }
+        amount = [self amountFromString:string];
     }
+    
+    if ([amount isEqualToNumber:self.amount] || ![self shouldChangeAmount:amount]) {
+        return;
+    }
+    
+    self.amount = amount;
+    
+    [self didChangeAmount:amount];
 }
 
 #pragma mark - Private
+
+- (BOOL)shouldChangeAmount:(NSNumber *)amount
+{
+    if ([self.delegate respondsToSelector:@selector(amountInputView:shouldChangeAmount:)]) {
+        return [self.delegate amountInputView:self shouldChangeAmount:amount];
+    }
+    return YES;
+}
+
+- (void)didChangeAmount:(NSNumber *)amount
+{
+    if ([self.delegate respondsToSelector:@selector(amountInputView:didChangeAmount:)]) {
+        [self.delegate amountInputView:self didChangeAmount:amount];
+    }
+}
 
 - (NSString *)currencyString:(NSString *)string;
 {
@@ -191,17 +216,6 @@
 - (NSString *)sanitizedString:(NSString *)string;
 {
     return [[string componentsSeparatedByCharactersInSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]] componentsJoinedByString:[NSString string]];
-}
-
-- (BOOL)shouldInputDigit:(NSNumber *)amount
-{
-    double maxAmount = 999999.99;
-    double totalAmount = (self.amount.doubleValue * 10) + amount.doubleValue;
-    if (totalAmount > maxAmount) {
-        self.amount = @(maxAmount);
-        return NO;
-    }
-    return YES;
 }
 
 @end

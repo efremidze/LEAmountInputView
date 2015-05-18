@@ -8,12 +8,41 @@
 
 #import <UIKit/UIKit.h>
 
-#import "LENumberPad.h"
+@class LEAmountInputView;
+@class LENumberPad;
+
+@protocol LEAmountInputViewDelegate <NSObject>
+
+@optional
+/**
+ *  Asks the delegate whether the amount should be changed.
+ *
+ *  If you do not implement this method, the default return value is YES.
+ *
+ *  @param amountInputView The amount input view object that is asking whether the amount should change.
+ *  @param amount          The new amount asked to change to.
+ *
+ *  @return YES if the amount should be changed or NO if it should not.
+ */
+- (BOOL)amountInputView:(LEAmountInputView *)amountInputView shouldChangeAmount:(NSNumber *)amount;
+
+/**
+ *  Tells the delegate that the amount changed. It does not call this method when you programmatically set the amount.
+ *
+ *  @param amountInputView The amount input view object that is notifying you of the change.
+ *  @param amount          The amount that was changed.
+ */
+- (void)amountInputView:(LEAmountInputView *)amountInputView didChangeAmount:(NSNumber *)amount;
+
+@end
 
 /**
  *  The `LEAmountInputView` class is an amount input view inspired by Square's design.
  */
-@interface LEAmountInputView : UIView <LENumberPadDataSource, LENumberPadDelegate>
+@interface LEAmountInputView : UIView
+
+/** The delegate of the view. */
+@property (nonatomic, weak) id<LEAmountInputViewDelegate> delegate;
 
 /** The text field of the view. */
 @property (nonatomic, strong) UITextField *textField;

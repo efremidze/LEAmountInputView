@@ -10,7 +10,7 @@
 #import "LENumberPadCollectionViewCell.h"
 #import "UIImage+LENumberPad.h"
 
-@interface LENumberPad () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface LENumberPad () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 
@@ -128,7 +128,8 @@
 - (IBAction)didTouchOnButton:(UIButton *)button
 {
     if ([self.delegate respondsToSelector:@selector(numberPad:didSelectButtonAtIndexPath:)]) {
-        [self.delegate numberPad:self didSelectButtonAtIndexPath:[self indexPathForButton:button]];
+        NSIndexPath *indexPath = [self indexPathForButton:button];
+        [self.delegate numberPad:self didSelectButtonAtIndexPath:indexPath];
     }
 }
 
