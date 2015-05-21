@@ -20,7 +20,7 @@
  *  If you do not implement this method, the default return value is YES.
  *
  *  @param amountInputView The amount input view object that is asking whether the amount should change.
- *  @param amount          The new amount asked to change to.
+ *  @param amount          The new changed amount.
  *
  *  @return YES if the amount should be changed or NO if it should not.
  */
