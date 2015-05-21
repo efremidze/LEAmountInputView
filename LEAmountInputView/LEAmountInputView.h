@@ -56,12 +56,8 @@
  */
 @property (nonatomic, strong) LENumberPad *numberPad;
 
-/**
- *  The number formatter of the amount.
- *
- *  This formats the amount displayed in the `textField`.
- */
-@property (nonatomic, strong) NSNumberFormatter *numberFormatter;
+/** The number style of the view. */
+@property (nonatomic) NSNumberFormatterStyle numberStyle;
 
 /** The amount displayed in the view. */
 @property (nonatomic, strong) NSNumber *amount;

@@ -11,16 +11,17 @@
 
 @interface LEAmountInputView () <LENumberPadDataSource, LENumberPadDelegate>
 
+@property (nonatomic, strong) NSNumberFormatter *numberFormatter;
+
 @end
 
 @implementation LEAmountInputView
 
 - (instancetype)initWithFrame:(CGRect)frame numberStyle:(NSNumberFormatterStyle)numberStyle;
 {
-    self = [super initWithFrame:frame];
+    self = [self initWithFrame:frame];
     if (self) {
-        self.numberFormatter.numberStyle = numberStyle;
-        [self initialize];
+        self.numberStyle = numberStyle;
     }
     return self;
 }
@@ -45,6 +46,8 @@
 
 - (void)initialize;
 {
+    self.backgroundColor = [UIColor whiteColor];
+    
     self.layer.borderColor = [UIColor colorWithWhite:0.9f alpha:1.0f].CGColor;
     self.layer.borderWidth = 1.0f;
     
@@ -109,6 +112,18 @@
 - (NSNumber *)amount;
 {
     return [self amountFromString:self.textField.text];
+}
+
+- (void)setNumberStyle:(NSNumberFormatterStyle)numberStyle
+{
+    self.numberFormatter.numberStyle = numberStyle;
+    
+    self.textField.placeholder = [self currencyString:nil];
+}
+
+- (NSNumberFormatterStyle)numberStyle
+{
+    return self.numberFormatter.numberStyle;
 }
 
 #pragma mark - LENumberPadDataSource
