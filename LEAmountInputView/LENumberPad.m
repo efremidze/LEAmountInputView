@@ -51,7 +51,9 @@
 {
     [super layoutSubviews];
     
-    [self.collectionView.collectionViewLayout invalidateLayout];
+    [self.collectionView performBatchUpdates:^{
+        [self.collectionView.collectionViewLayout invalidateLayout];
+    } completion:nil];
 }
 
 #pragma mark - Override Properties
