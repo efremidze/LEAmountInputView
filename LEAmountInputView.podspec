@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "LEAmountInputView"
-  s.version          = "0.1.4"
+  s.version          = "0.1.5"
   s.summary          = "Amount Input View (inspired by Square's design)"
   s.description      = "LEAmountInputView is an amount input view inspired by Square's design"
   s.homepage         = "https://github.com/efremidze/LEAmountInputView"
