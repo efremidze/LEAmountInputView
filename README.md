@@ -11,6 +11,10 @@
 
 ![LEAmountInputView Screenshot](Screenshots/example.gif)
 
+## Requirements
+
+- iOS 7.0+
+
 ## Installation
 
 LEAmountInputView is available through [CocoaPods](http://cocoapods.org). To install
