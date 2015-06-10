@@ -17,6 +17,8 @@
 		8B3FBB951B03E13F00DE7B2F /* UIImage+LENumberPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3FBB941B03E13F00DE7B2F /* UIImage+LENumberPad.m */; };
 		8B3FBB9E1B0402B700DE7B2F /* LENumberPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3FBB9D1B0402B700DE7B2F /* LENumberPad.m */; };
 		8B3FBBA11B04036800DE7B2F /* LENumberPadCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B3FBBA01B04036800DE7B2F /* LENumberPadCollectionViewCell.m */; };
+		8BAF04051B288D7000159874 /* LEAmountInputTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAF04041B288D7000159874 /* LEAmountInputTextField.m */; };
+		8BAF040B1B28906200159874 /* NSNumberFormatter+LEAmountInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAF040A1B28906200159874 /* NSNumberFormatter+LEAmountInputView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,10 @@
 		8B3FBB9D1B0402B700DE7B2F /* LENumberPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LENumberPad.m; sourceTree = "<group>"; };
 		8B3FBB9F1B04036800DE7B2F /* LENumberPadCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LENumberPadCollectionViewCell.h; sourceTree = "<group>"; };
 		8B3FBBA01B04036800DE7B2F /* LENumberPadCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LENumberPadCollectionViewCell.m; sourceTree = "<group>"; };
+		8BAF04031B288D7000159874 /* LEAmountInputTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEAmountInputTextField.h; sourceTree = "<group>"; };
+		8BAF04041B288D7000159874 /* LEAmountInputTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LEAmountInputTextField.m; sourceTree = "<group>"; };
+		8BAF04091B28906200159874 /* NSNumberFormatter+LEAmountInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumberFormatter+LEAmountInputView.h"; sourceTree = "<group>"; };
+		8BAF040A1B28906200159874 /* NSNumberFormatter+LEAmountInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumberFormatter+LEAmountInputView.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,12 +101,16 @@
 		8B2E92B31AF6EC1300F94CB6 /* LEAmountInputView */ = {
 			isa = PBXGroup;
 			children = (
+				8BAF04031B288D7000159874 /* LEAmountInputTextField.h */,
+				8BAF04041B288D7000159874 /* LEAmountInputTextField.m */,
 				8B2E92B61AF6EC1300F94CB6 /* LEAmountInputView.h */,
 				8B2E92B71AF6EC1300F94CB6 /* LEAmountInputView.m */,
 				8B3FBB9C1B0402B700DE7B2F /* LENumberPad.h */,
 				8B3FBB9D1B0402B700DE7B2F /* LENumberPad.m */,
 				8B3FBB9F1B04036800DE7B2F /* LENumberPadCollectionViewCell.h */,
 				8B3FBBA01B04036800DE7B2F /* LENumberPadCollectionViewCell.m */,
+				8BAF04091B28906200159874 /* NSNumberFormatter+LEAmountInputView.h */,
+				8BAF040A1B28906200159874 /* NSNumberFormatter+LEAmountInputView.m */,
 				8B3FBB931B03E13F00DE7B2F /* UIImage+LENumberPad.h */,
 				8B3FBB941B03E13F00DE7B2F /* UIImage+LENumberPad.m */,
 			);
@@ -178,12 +188,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B3FBBA11B04036800DE7B2F /* LENumberPadCollectionViewCell.m in Sources */,
+				8BAF040B1B28906200159874 /* NSNumberFormatter+LEAmountInputView.m in Sources */,
 				8B3FBB951B03E13F00DE7B2F /* UIImage+LENumberPad.m in Sources */,
 				8B2E92961AF6EB9A00F94CB6 /* ViewController.m in Sources */,
 				8B3FBB9E1B0402B700DE7B2F /* LENumberPad.m in Sources */,
 				8B2E92931AF6EB9A00F94CB6 /* AppDelegate.m in Sources */,
 				8B2E92901AF6EB9A00F94CB6 /* main.m in Sources */,
 				8B2E92C11AF6EC1300F94CB6 /* LEAmountInputView.m in Sources */,
+				8BAF04051B288D7000159874 /* LEAmountInputTextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "LEAmountInputView.h"
 
-@interface ViewController () <LEAmountInputViewDelegate>
+@interface ViewController () <LEAmountInputTextFieldDelegate>
 
 @end
 
@@ -28,7 +28,7 @@
 {
     LEAmountInputView *amountInputView = [[LEAmountInputView alloc] initWithFrame:CGRectZero numberStyle:NSNumberFormatterCurrencyStyle];
     amountInputView.translatesAutoresizingMaskIntoConstraints = NO;
-    amountInputView.delegate = self;
+    amountInputView.textField.delegate = self;
     [self.view addSubview:amountInputView];
     
     NSDictionary *views = NSDictionaryOfVariableBindings(amountInputView);
@@ -36,22 +36,22 @@
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[amountInputView]-10-|" options:0 metrics:0 views:views]];
 }
 
-#pragma mark - LEAmountInputViewDelegate
+#pragma mark - LEAmountInputTextFieldDelegate
 
-- (BOOL)amountInputView:(LEAmountInputView *)amountInputView shouldChangeAmount:(NSNumber *)amount
+- (BOOL)textField:(LEAmountInputTextField *)textField shouldChangeAmount:(NSNumber *)amount
 {
     NSLog(@"%s %@", __PRETTY_FUNCTION__, amount);
     
     double maxAmount = 999999.99;
     double totalAmount = amount.doubleValue;
     if (totalAmount > maxAmount) {
-        amountInputView.amount = @(maxAmount);
+        textField.amount = @(maxAmount);
         return NO;
     }
     return YES;
 }
 
-- (void)amountInputView:(LEAmountInputView *)amountInputView didChangeAmount:(NSNumber *)amount
+- (void)textField:(LEAmountInputTextField *)textField didChangeAmount:(NSNumber *)amount
 {
     NSLog(@"%s %@", __PRETTY_FUNCTION__, amount);
 }
