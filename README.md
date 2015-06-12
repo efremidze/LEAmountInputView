@@ -41,6 +41,10 @@ LEAmountInputView *amountInputView = [[LEAmountInputView alloc] initWithFrame:se
 [self.view addSubview:amountInputView];
 ```
 
+### LEAmountInputTextField
+
+If you want to use the textField standalone with the numberPad as a inputView, use the `LEAmountInputTextField` subclass.
+
 ## Contributions
 
 Contributions are totally welcome.
