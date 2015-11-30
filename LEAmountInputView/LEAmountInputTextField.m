@@ -106,14 +106,14 @@
 
 #pragma mark - LENumberPadDataSource
 
-- (NSInteger)numberOfColumnsInNumberPad:(LENumberPad *)numberPad;
-{
-    return 3;
-}
-
 - (NSInteger)numberOfRowsInNumberPad:(LENumberPad *)numberPad;
 {
     return 4;
+}
+
+- (NSInteger)numberPad:(LENumberPad *)numberPad numberOfColumnsInRow:(NSInteger)row
+{
+    return 3;
 }
 
 - (NSString *)numberPad:(LENumberPad *)numberPad buttonTitleForButtonAtIndexPath:(NSIndexPath *)indexPath;

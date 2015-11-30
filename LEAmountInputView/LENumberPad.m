@@ -78,7 +78,11 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [self numberOfColumns] * [self numberOfRows];
+    NSInteger items = 0;
+    for (int i = 0; i < [self numberOfRows]; i++) {
+        items += [self numberOfColumnsInRow: i];
+    }
+    return items;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
@@ -111,8 +115,9 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewFlowLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
 {
-    NSInteger numberOfColumns = [self numberOfColumns];
     NSInteger numberOfRows = [self numberOfRows];
+    NSInteger row = [self rowForIndexPath:indexPath];
+    NSInteger numberOfColumns = [self numberOfColumnsInRow:row];
     
     CGFloat width = collectionView.frame.size.width / numberOfColumns;
     CGFloat height = collectionView.frame.size.height / numberOfRows;
@@ -153,14 +158,24 @@
     return [self.collectionView indexPathForItemAtPoint:point];
 }
 
-- (NSInteger)numberOfColumns;
-{
-    return [self.dataSource numberOfColumnsInNumberPad:self];
-}
-
 - (NSInteger)numberOfRows;
 {
     return [self.dataSource numberOfRowsInNumberPad:self];
+}
+
+- (NSInteger)numberOfColumnsInRow:(NSInteger)row;
+{
+    return [self.dataSource numberPad:self numberOfColumnsInRow:row];
+}
+
+- (NSInteger)rowForIndexPath:(NSIndexPath *)indexPath;
+{
+    NSInteger item = 0;
+    NSInteger row = -1;
+    do {
+        item += [self numberOfColumnsInRow:++row];
+    } while (item <= indexPath.item);
+    return row;
 }
 
 #pragma mark - Private
