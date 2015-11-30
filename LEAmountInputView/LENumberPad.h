@@ -20,11 +20,13 @@
 - (UIColor *)numberPad:(LENumberPad *)numberPad buttonBackgroundColorForButtonAtIndexPath:(NSIndexPath *)indexPath;
 - (UIColor *)numberPad:(LENumberPad *)numberPad buttonBackgroundHighlightedColorForButtonAtIndexPath:(NSIndexPath *)indexPath;
 
+@optional
+- (CGSize)numberPad:(LENumberPad *)numberPad buttonSizeForButtonAtIndexPath:(NSIndexPath *)indexPath defaultSize:(CGSize)size;
+
 @end
 
 @protocol LENumberPadDelegate <NSObject>
 
-@optional
 - (void)numberPad:(LENumberPad *)numberPad didSelectButtonAtIndexPath:(NSIndexPath *)indexPath;
 
 @end

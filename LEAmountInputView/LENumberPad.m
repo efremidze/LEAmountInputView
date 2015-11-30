@@ -120,7 +120,13 @@
     CGFloat interitemSpacing = collectionViewLayout.minimumInteritemSpacing * (((float)numberOfColumns - 1.0f) / (float)numberOfColumns);
     CGFloat lineSpacing = collectionViewLayout.minimumLineSpacing * (((float)numberOfRows - 1.0f) / (float)numberOfRows);
     
-    return (CGSize){width - interitemSpacing, height - lineSpacing};
+    CGSize size = (CGSize){width - interitemSpacing, height - lineSpacing};
+    
+    if ([self.dataSource respondsToSelector:@selector(numberPad:buttonSizeForButtonAtIndexPath:defaultSize:)]) {
+        return [self.dataSource numberPad:self buttonSizeForButtonAtIndexPath:indexPath defaultSize:size];
+    }
+    
+    return size;
 }
 
 #pragma mark - IBActions
