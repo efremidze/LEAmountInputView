@@ -98,6 +98,9 @@
     UIFont *font = [self buttonTitleFontForButtonAtIndexPath:indexPath];
     cell.button.titleLabel.font = font;
     
+    UIImage *image = [self buttonImageForButtonAtIndexPath:indexPath];
+    [cell.button setImage:image forState:UIControlStateNormal];
+    
     UIColor *backgroundColor = [self buttonBackgroundColorForButtonAtIndexPath:indexPath];
     UIImage *backgroundImage = [UIImage imageFromColor:backgroundColor];
     [cell.button setBackgroundImage:backgroundImage forState:UIControlStateNormal];
@@ -193,6 +196,11 @@
 - (UIFont *)buttonTitleFontForButtonAtIndexPath:(NSIndexPath *)indexPath;
 {
     return [self.dataSource numberPad:self buttonTitleFontForButtonAtIndexPath:indexPath];
+}
+
+- (UIImage *)buttonImageForButtonAtIndexPath:(NSIndexPath *)indexPath;
+{
+    return [self.dataSource numberPad:self buttonImageForButtonAtIndexPath:indexPath];
 }
 
 - (UIColor *)buttonBackgroundColorForButtonAtIndexPath:(NSIndexPath *)indexPath;
