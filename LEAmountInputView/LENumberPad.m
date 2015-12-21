@@ -60,8 +60,8 @@
 {
     if (!_collectionView) {
         UICollectionViewFlowLayout *collectionViewLayout = [UICollectionViewFlowLayout new];
-        collectionViewLayout.minimumLineSpacing = 1.0f;
-        collectionViewLayout.minimumInteritemSpacing = 1.0f;
+        collectionViewLayout.minimumLineSpacing = self.separatorWidth;
+        collectionViewLayout.minimumInteritemSpacing = self.separatorWidth;
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:collectionViewLayout];
         _collectionView.translatesAutoresizingMaskIntoConstraints = NO;
         _collectionView.dataSource = self;
@@ -72,6 +72,14 @@
         [_collectionView registerClass:[LENumberPadCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([LENumberPadCollectionViewCell class])];
     }
     return _collectionView;
+}
+
+- (CGFloat)separatorWidth
+{
+    if (!_separatorWidth) {
+        _separatorWidth = 1.0f;
+    }
+    return _separatorWidth;
 }
 
 #pragma mark - UICollectionViewDataSource

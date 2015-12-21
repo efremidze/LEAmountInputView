@@ -42,6 +42,8 @@
 @property (nonatomic, weak) id<LENumberPadDataSource> dataSource;
 @property (nonatomic, weak) id<LENumberPadDelegate> delegate;
 
+@property (nonatomic) CGFloat separatorWidth;
+
 - (UIButton *)buttonAtIndexPath:(NSIndexPath *)indexPath;
 - (NSIndexPath *)indexPathForButton:(UIButton *)button;
 
