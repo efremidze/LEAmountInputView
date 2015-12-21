@@ -141,6 +141,11 @@
     return [UIFont systemFontOfSize:40.0f];
 }
 
+- (UIImage *)numberPad:(LENumberPad *)numberPad buttonImageForButtonAtIndexPath:(NSIndexPath *)indexPath;
+{
+    return nil;
+}
+
 - (UIColor *)numberPad:(LENumberPad *)numberPad buttonBackgroundColorForButtonAtIndexPath:(NSIndexPath *)indexPath;
 {
     return [UIColor whiteColor];
