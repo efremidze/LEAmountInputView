@@ -94,6 +94,7 @@
     
     UIColor *titleColor = [self buttonTitleColorForButtonAtIndexPath:indexPath];
     [cell.button setTitleColor:titleColor forState:UIControlStateNormal];
+    cell.button.tintColor = titleColor;
     
     UIFont *font = [self buttonTitleFontForButtonAtIndexPath:indexPath];
     cell.button.titleLabel.font = font;
