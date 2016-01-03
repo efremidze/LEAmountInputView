@@ -36,8 +36,8 @@
     [self.contentView addSubview:self.button];
     
     NSDictionary *views = @{@"button": self.button};
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0.5-[button]-0.5-|" options:0 metrics:0 views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0.5-[button]-0.5-|" options:0 metrics:0 views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-1-[button]|" options:0 metrics:0 views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-1-[button]|" options:0 metrics:0 views:views]];
 }
 
 #pragma mark - Override Properties
