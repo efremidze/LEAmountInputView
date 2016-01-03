@@ -32,7 +32,7 @@
     [self.view addSubview:amountInputView];
     
     NSDictionary *views = NSDictionaryOfVariableBindings(amountInputView);
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-10-[amountInputView]-10-|" options:0 metrics:0 views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-10-[amountInputView]-10-|" options:0 metrics:0 views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[amountInputView]-10-|" options:0 metrics:0 views:views]];
 }
 

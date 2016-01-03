@@ -43,7 +43,7 @@
     [self addSubview:self.collectionView];
     
     NSDictionary *views = @{@"collectionView": self.collectionView};
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|[collectionView]|" options:0 metrics:0 views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[collectionView]|" options:0 metrics:0 views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[collectionView]|" options:0 metrics:0 views:views]];
 }
 
@@ -60,8 +60,8 @@
 {
     if (!_collectionView) {
         UICollectionViewFlowLayout *collectionViewLayout = [UICollectionViewFlowLayout new];
-        collectionViewLayout.minimumLineSpacing = self.separatorWidth;
-        collectionViewLayout.minimumInteritemSpacing = self.separatorWidth;
+        collectionViewLayout.minimumLineSpacing = 0;
+        collectionViewLayout.minimumInteritemSpacing = 0;
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:collectionViewLayout];
         _collectionView.translatesAutoresizingMaskIntoConstraints = NO;
         _collectionView.dataSource = self;
@@ -72,14 +72,6 @@
         [_collectionView registerClass:[LENumberPadCollectionViewCell class] forCellWithReuseIdentifier:NSStringFromClass([LENumberPadCollectionViewCell class])];
     }
     return _collectionView;
-}
-
-- (CGFloat)separatorWidth
-{
-    if (!_separatorWidth) {
-        _separatorWidth = 1.0f;
-    }
-    return _separatorWidth;
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -134,10 +126,7 @@
     CGFloat width = collectionView.frame.size.width / numberOfColumns;
     CGFloat height = collectionView.frame.size.height / numberOfRows;
     
-    CGFloat interitemSpacing = collectionViewLayout.minimumInteritemSpacing * (((float)numberOfColumns - 1.0f) / (float)numberOfColumns);
-    CGFloat lineSpacing = collectionViewLayout.minimumLineSpacing * (((float)numberOfRows - 1.0f) / (float)numberOfRows);
-    
-    CGSize size = (CGSize){width - interitemSpacing, height - lineSpacing};
+    CGSize size = (CGSize){width, height};
     
     if ([self.dataSource respondsToSelector:@selector(numberPad:buttonSizeForButtonAtIndexPath:defaultSize:)]) {
         return [self.dataSource numberPad:self buttonSizeForButtonAtIndexPath:indexPath defaultSize:size];

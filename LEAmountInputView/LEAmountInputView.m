@@ -52,8 +52,8 @@
     [self addSubview:self.numberPad];
     
     NSDictionary *views = @{@"textField": self.textField, @"numberPad": self.numberPad};
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|-20-[textField]-20-|" options:0 metrics:0 views:views]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"|[numberPad]|" options:0 metrics:0 views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[textField]-20-|" options:0 metrics:0 views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[numberPad]|" options:0 metrics:0 views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[textField][numberPad]|" options:0 metrics:0 views:views]];
     [self addConstraint:[NSLayoutConstraint constraintWithItem:self.textField attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.numberPad attribute:NSLayoutAttributeHeight multiplier:1.0f / self.numberPad.numberOfRows constant:0]];
 }
