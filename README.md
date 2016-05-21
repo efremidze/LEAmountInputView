@@ -9,9 +9,9 @@
 
 `LEAmountInputView` is an amount input view inspired by Square's design.
 
-**Note:** If you like `LEAmountInputView`, checkout [NumPad](https://github.com/efremidze/NumPad).
-
 ![LEAmountInputView Screenshot](Screenshots/example.gif)
+
+**Note:** If you like `LEAmountInputView`, checkout [NumPad](https://github.com/efremidze/NumPad).
 
 ## Installation
 
