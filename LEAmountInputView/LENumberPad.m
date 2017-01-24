@@ -120,7 +120,7 @@
     CGFloat interitemSpacing = collectionViewLayout.minimumInteritemSpacing * (((float)numberOfColumns - 1.0f) / (float)numberOfColumns);
     CGFloat lineSpacing = collectionViewLayout.minimumLineSpacing * (((float)numberOfRows - 1.0f) / (float)numberOfRows);
     
-    return (CGSize){width - interitemSpacing, height - lineSpacing};
+    return (CGSize){floor(width - interitemSpacing), height - lineSpacing};
 }
 
 #pragma mark - IBActions
